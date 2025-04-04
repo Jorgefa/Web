@@ -1,0 +1,30 @@
+/* src/pages/DesktopWarningPage.module.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    padding: var(--spacing-large);
+  }
+  
+  .warningBox {
+    font-family: var(--font-family-text);
+    background-color: var(--color-background-light);
+    padding: var(--spacing-large);
+    border-radius: 8px;
+    text-align: center;
+    max-width: 450px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .warningBox h1 {
+    font-family: var(--font-family-display);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-medium);
+  }
+  
+  .warningBox p {
+    margin-bottom: var(--spacing-small);
+    line-height: 1.6;
+  }

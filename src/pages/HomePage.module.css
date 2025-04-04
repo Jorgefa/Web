@@ -1,0 +1,92 @@
+/* src/pages/HomePage.module.css */
+
+.container {
+    padding: var(--spacing-medium);
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-color: var(--color-background-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .section {
+    margin-bottom: var(--spacing-large);
+    text-align: center;
+  }
+
+  /* MODIFICADOR: Clase para alinear una sección a la izquierda */
+.sectionAlignLeft {
+    text-align: left;
+  }
+  
+  /* --- ESTILOS DE TEXTO ESPECÍFICOS PARA HOMEPAGE --- */
+  
+  /* Título Principal "QUE NOS CASAMOS" */
+  .mainTitle {
+    /* Hereda h1: Poppins Bold, Rojo (¡PERO lo cambiaremos!) */
+    font-size: clamp(4rem, 18vw, 8rem); /* Ajusta tamaño */
+    line-height: 1;
+    text-align: left;
+    /* No necesita definir font/color aquí si hereda bien,
+       a menos que queramos la variación Roashe */
+  }
+  
+  /* Variación: Clase para usar Roashe en elementos display */
+  /* Usaremos esta clase junto con .mainTitle o .sectionTitle en el TSX */
+  .fontDisplayRoashe {
+    font-family: var(--font-family-display); /* Roashe Serif */
+    font-weight: normal; /* Roashe es normal weight */
+    /* El color (rojo) se hereda del h1/h2 base, no hace falta repetirlo */
+  }
+  
+  /* Span específico para "NOS" si necesitas estilo diferente DENTRO del título */
+  /* Si TODO el .mainTitle usa Roashe, quizás no necesites esto */
+  /* Si .mainTitle es Poppins y solo NOS es Roashe, usarías esto: */
+  
+  .nosWordSpecial {
+    font-family: var(--font-family-display);
+    font-weight: normal;
+  }
+  
+  
+  
+  /* Subtítulo (Debajo de "QUE NOS...") */
+  .subtitle {
+    /* Hereda p/body: Poppins Regular, Azul */
+    font-size: 1.1rem;
+    line-height: 1.4;
+    text-align: left;
+    margin-bottom: var(--spacing-large);
+    /* Si lo quieres en blanco, añadirías la clase global 'text-color-light' en el TSX */
+    /* Si lo quieres en negro, añadirías la clase global 'text-color-dark' en el TSX */
+  
+  }
+  
+  /* Títulos de Sección (ej: "30 AGOSTO 2025") */
+  .sectionTitle {
+    /* Hereda h2: Poppins Bold, Rojo */
+    font-size: 2.5rem; /* Ajusta tamaño */
+    /* Si quieres que ESTE título sea Roashe, añade la clase .fontDisplayRoashe en TSX */
+  }
+  
+  /* Párrafos dentro de las secciones */
+  .section p {
+    /* Hereda p/body: Poppins Regular, Azul */
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-small);
+     /* Por defecto son azules. Si necesitas uno blanco, usa la clase global */
+     /* Ejemplo de cómo se vería en TSX: <p className='text-color-light'>Texto blanco</p> */
+  }
+  
+  /* Footer */
+  .footer {
+      margin-top: auto;
+      padding-top: var(--spacing-large);
+      text-align: center;
+      /* Hereda p/body: Poppins Regular, Azul */
+      font-size: 0.9rem;
+      color: grey; /* Sobrescribimos a gris */
+  }

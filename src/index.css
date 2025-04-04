@@ -1,68 +1,104 @@
+/* src/index.css */
+
+/* --- 1. @font-face (Sin cambios) --- */
+@font-face {
+  font-family: 'Roashe Serif';
+  src: url('./assets/fonts/Roashe-Serif-Font/RoashePersonalUse-jEa4M.otf') format('opentype');
+  font-weight: normal; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins/Poppins-Light.ttf') format('truetype');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* --- 2. Variables CSS Globales (:root) --- */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Fuentes */
+  --font-family-display: 'Roashe Serif', serif; /* Fuente especial/variación */
+  --font-family-text: 'Poppins', sans-serif;   /* Fuente principal */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* Pesos */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  /* Colores Principales */
+  --color-primary-red: #FF0000;
+  --color-secondary-blue: #0052FF; /* Azul para texto normal por defecto */
+  --color-text-light: #FFFFFF;     /* Blanco */
+  --color-text-dark: #000000;      /* Negro/oscuro */
+  --color-background-light: #FFFFFF;
+  --color-background-dark: #0A0A0A;
+
+  /* Espaciados (Sin cambios) */
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 32px;
+}
+
+/* --- 3. Estilos Base --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  /* Texto normal por defecto: Poppins Regular, Azul */
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary-blue); /* Azul por defecto */
+  background-color: var(--color-background-light);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+/* Texto Display por defecto (h1-h6): Poppins Bold, Rojo */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-text);   /* Poppins */
+  font-weight: var(--font-weight-bold); /* Bold */
+  color: var(--color-primary-red);      /* Rojo */
+  line-height: 1.2;
+  margin-bottom: var(--spacing-medium);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
+/* Estilos base adicionales (links, imágenes, etc. - sin cambios) */
+a { color: var(--color-secondary-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img, video, svg { max-width: 100%; height: auto; display: block; }
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-family: var(--font-family-text); cursor: pointer;
+  padding: var(--spacing-small) var(--spacing-medium);
+  border: none; border-radius: 4px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* --- 4. Clases de Utilidad Globales (Opcional pero útil) --- */
+
+/* Para aplicar color blanco al texto normal */
+.text-color-light {
+  color: var(--color-text-light);
+}
+/* Para aplicar color oscuro al texto normal */
+.text-color-dark {
+    color: var(--color-text-dark);
+}
+/* Para forzar texto display (Poppins Bold Red) si un elemento no es h1-h6 */
+.text-display-default {
+    font-family: var(--font-family-text);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary-red);
+}
+/* Para forzar texto normal (Poppins Regular Blue) si un elemento no es p */
+.text-normal-default {
+    font-family: var(--font-family-text);
+    font-weight: var(--font-weight-regular);
+    color: var(--color-secondary-blue);
 }
