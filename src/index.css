@@ -34,8 +34,8 @@
   --font-weight-bold: 700;
 
   /* Colores Principales */
-  --color-primary-red: #FF0000;
-  --color-secondary-blue: #0052FF; /* Azul para texto normal por defecto */
+  --color-primary-red: #e10102;
+  --color-secondary-blue: #1c4ae5; /* Azul para texto normal por defecto */
   --color-text-light: #FFFFFF;     /* Blanco */
   --color-text-dark: #000000;      /* Negro/oscuro */
   --color-background-light: #FFFFFF;
@@ -44,7 +44,7 @@
   /* Espaciados (Sin cambios) */
   --spacing-small: 8px;
   --spacing-medium: 16px;
-  --spacing-large: 32px;
+  --spacing-large: 128px;
 }
 
 /* --- 3. Estilos Base --- */

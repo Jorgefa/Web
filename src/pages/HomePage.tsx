@@ -10,6 +10,11 @@ const HomePage: React.FC = () => {
       <section className={styles.section}>
         {/* Título Principal: Combinamos clases manualmente */}
         {/* Usamos template literals `` y ${} para insertar las clases */}
+        <p>
+          Cris & Jorge
+        </p>
+        <br />
+        <br />
         <h1 className={styles.mainTitle}>
           ¡QUE
           <br />
@@ -22,7 +27,7 @@ const HomePage: React.FC = () => {
         </h1>
 
         {/* Subtítulo: Solo necesita su clase del módulo */}
-        <p className={styles.subtitle}>
+        <p className={`${styles.subtitle} ${styles.sectionAlignLeftSecondColumn}`}>
           A quien no le va a gustar celebrar el amor y una buena jarana.
         </p>
       </section>

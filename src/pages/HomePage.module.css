@@ -20,6 +20,12 @@
 .sectionAlignLeft {
     text-align: left;
   }
+
+  /* MODIFICADOR: Clase para alinear una sección en segunda columna */
+.sectionAlignLeftSecondColumn {
+    text-align: left;
+    padding-left: 30%;
+  }
   
   /* --- ESTILOS DE TEXTO ESPECÍFICOS PARA HOMEPAGE --- */
   

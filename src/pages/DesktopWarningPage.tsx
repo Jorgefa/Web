@@ -7,7 +7,7 @@ const DesktopWarningPage: React.FC = () => {
     <div className={styles.container}> {/* Renombramos de .desktopWarningContainer */}
       <div className={styles.warningBox}> {/* Renombramos de .desktopWarning */}
         <h1>¡Hola!</h1>
-        <p>Esta invitación está diseñada para verse en el móvil.</p>
+        <p>Esta invitación está diseñada para verse en el móvil, y solo en vertical!</p>
         <p>Por favor, abre el enlace en tu teléfono para una mejor experiencia.</p>
         {/* Podrías añadir un SVG de un móvil aquí si quieres */}
       </div>
