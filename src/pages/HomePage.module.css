@@ -106,20 +106,50 @@
   padding: 0 var(--spacing-medium); /* Añade padding lateral si es necesario */
 }
 
-/* Estilo para cada elemento GIF dentro de la cuadrícula */
-.gifItem {
-  width: 100%; /* Hace que el GIF ocupe todo el ancho de su celda */
-  height: auto; /* Mantiene la proporción */
-  display: block; /* Evita espacios extra */
-  border-radius: 4px; /* Opcional: bordes redondeados */
+/* --- Estilos para GIFs Superpuestos --- */
+
+.gifOverlapContainer {
+  position: relative; /* MUY IMPORTANTE: Establece el contexto de posicionamiento */
+  width: 90%;      /* O el ancho que desees para el contenedor */
+  max-width: 450px; /* Limita el tamaño máximo */
+  /* --- AJUSTA LA ALTURA: Debe ser suficiente para contener los GIFs solapados --- */
+  /* Puedes empezar con un valor fijo y ajustarlo, o calcularlo */
+  height: 350px;    /* Ejemplo: AJUSTAR ESTA ALTURA */
+  margin: var(--spacing-large) auto; /* Centrar contenedor y darle espacio */
+  /* border: 1px dashed red; */ /* Útil para depurar y ver los límites */
 }
 
-/* Estilo para un GIF individual (si necesita ser diferente) */
-.singleGif {
-    max-width: 200px; /* Ejemplo: Limita el tamaño de un GIF individual */
-    margin: var(--spacing-medium) auto; /* Centra el GIF */
-    display: block;
-    border-radius: 8px;
+/* Estilo base común para todos los GIFs dentro del contenedor */
+.gifItem {
+  display: block; /* Asegura que sea un bloque */
+  position: absolute; /* Posicionamiento absoluto DENTRO del contenedor */
+  /* --- AJUSTA EL ANCHO de los gifs --- */
+  width: 65%;      /* Ejemplo: 65% del ancho del CONTENEDOR */
+  height: auto;    /* Mantiene la proporción */
+  border-radius: 8px; /* Opcional: bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Opcional: sombra */
+}
+
+/* --- Posicionamiento INDIVIDUAL de cada GIF --- */
+/* ¡AJUSTA ESTOS VALORES PARA TU DISEÑO! top/left/z-index */
+
+.gifOverlap1 { /* GIF Secundario 1 (ej: capa inferior izquierda) */
+  top: 10%;
+  left: 10%;
+  z-index: 1; /* Más bajo */
+}
+
+.gifOverlap2 { /* GIF Principal (ej: capa del medio, más centrada) */
+  top: 70%;
+  left: 20%; /* Un poco más a la derecha */
+  z-index: 2; /* Encima del anterior */
+}
+
+.gifOverlap3 { /* GIF Secundario 2 (ej: capa superior derecha) */
+  top: 35%;
+  left: 35%; /* Más a la derecha y abajo */
+  width: 70%; /* Quizás un poco más grande */
+  z-index: 3; /* Encima de todos */
 }
 
 /* Estilo para el botón/enlace "YO VOY!" */

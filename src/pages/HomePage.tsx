@@ -46,30 +46,22 @@ const HomePage: React.FC = () => {
         <p className={`${styles.subtitle} ${styles.sectionAlignLeftSecondColumn}`}>
           A quien no le va a gustar celebrar el amor y una buena jarana.
         </p>
-      </section>
 
-      {/* GIFS 01 */}
-      <section>
-        <div className={styles.gifGrid}>
+        <div className={styles.gifOverlapContainer}>
           <img
             src={gifMichelDwightBailando}
             alt="Ilustración animada de una pareja bailando felizmente"
-            className={styles.gifItem} // Clase opcional para estilizar cada GIF
-          />
-          <img
-            src={gifDiCaprio}
-            alt="Ilustración animada de un grupo de amigos riendo juntos"
-            className={styles.gifItem}
-          />
+            className={`${styles.gifItem} ${styles.gifOverlap1}`} // Clase común + clase específica
+            />
           <img
             src={gifVestidoAmarillo}
-            alt="Ilustración animada de copas brindando"
-            className={styles.gifItem}
-          />
+            alt="Ilustración animada de un grupo de amigos riendo juntos"
+            className={`${styles.gifItem} ${styles.gifOverlap2}`}
+            />
           <img
-            src={gifGato}
-            alt="Ilustración animada de una mujer emocionada"
-            className={styles.gifItem}
+            src={gifDiCaprio}
+            alt="Ilustración animada de copas brindando"
+            className={`${styles.gifItem} ${styles.gifOverlap3}`}
             />
         </div>
       </section>
