@@ -106,3 +106,76 @@
       text-align: center;
       font-size: 0.9rem;
   }
+
+  
+.detailsButton, /* Aplicar a ambos botones para consistencia inicial */
+.deleteButton {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    flex-grow: 0; /* No crecer por defecto */
+    flex-shrink: 0; /* No encoger */
+    margin-left: var(--spacing-small); /* Espacio entre botones */
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.detailsButton {
+    background-color: var(--color-secondary-blue);
+    color: white;
+}
+.detailsButton:hover {
+    background-color: #003bb5;
+}
+.detailsButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+.deleteButton {
+    background-color: var(--color-primary-red);
+    color: white;
+}
+.deleteButton:hover {
+    background-color: #cc0000; /* Rojo más oscuro */
+}
+.deleteButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* Estilos opcionales para feedback visual durante/después del borrado */
+.confirmationItem.deleting {
+  opacity: 0.6;
+  background-color: #f0f0f0;
+}
+
+.confirmationItem.deleteError {
+  border-left: 5px solid var(--color-primary-red); /* Indicador de error */
+  background-color: #ffebee; /* Fondo rojizo claro */
+}
+
+/* Ajuste para flex-wrap en pantallas pequeñas si es necesario */
+@media (max-width: 600px) {
+    .confirmationItem {
+        flex-direction: column; /* Apilar elementos */
+        align-items: flex-start; /* Alinear al inicio */
+    }
+    .formName {
+        flex-basis: 100%; /* Ocupar todo el ancho */
+    }
+    .submitDate {
+        flex-basis: 100%;
+        text-align: left; /* Alinear fecha a la izquierda */
+        margin-bottom: var(--spacing-small);
+    }
+    .detailsButton,
+    .deleteButton {
+        width: 100%; /* Botones ocupan todo el ancho */
+        margin-left: 0;
+        margin-top: var(--spacing-small); /* Espacio entre botones */
+    }
+}

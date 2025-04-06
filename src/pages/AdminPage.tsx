@@ -1,7 +1,5 @@
-// src/pages/AdminPage.tsx
-import React, { useState, useEffect, useMemo } from 'react';
-//import { Link } from 'react-router-dom'; // Para enlazar a detalles (si implementamos esa ruta)
-import { getAllConfirmations } from '../services/firestoreService'; // Nueva función que crearemos
+import React, { useState, useEffect, useMemo, useCallback  } from 'react';
+import { getAllConfirmations, deleteConfirmation } from '../services/firestoreService'; // <-- Importa deleteConfirmation
 import { ConfirmationFormData } from '../types/confirmation';
 import styles from './AdminPage.module.css';
 
@@ -14,6 +12,8 @@ const AdminPage: React.FC = () => {
   const [confirmations, setConfirmations] = useState<ConfirmationDoc[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [deleteStatus, setDeleteStatus] = useState<{ [key: string]: 'deleting' | 'error' | null }>({}); // Estado para feedback de borrado
+
 
   // Efecto para cargar los datos al montar la página
   useEffect(() => {
@@ -102,13 +102,45 @@ const AdminPage: React.FC = () => {
   }, [confirmations]); // Recalcular solo si 'confirmations' cambia
 
 
-  // --- Renderizado ---
-  if (isLoading) {
-    return <div className={styles.statusMessage}>Cargando datos...</div>;
-  }
+  // --- NUEVA FUNCIÓN handleDelete ---
+  const handleDelete = useCallback(async (docId: string, displayName: string) => {
+    // 1. Confirmación del usuario
+    const confirmDelete = window.confirm(
+      `¿Estás seguro de que quieres eliminar el registro "${displayName}"?\n¡Esta acción no se puede deshacer!`
+    );
 
-  if (error) {
-    return <div className={styles.statusMessage} style={{ color: 'red' }}>{error}</div>;
+    if (confirmDelete) {
+      // Marcar como 'borrando' para feedback visual (opcional)
+      setDeleteStatus(prev => ({ ...prev, [docId]: 'deleting' }));
+      setError(null); // Limpiar errores anteriores
+
+      try {
+        // 2. Llamar al servicio de borrado
+        await deleteConfirmation(docId);
+
+        // 3. Actualizar estado local para reflejar el borrado
+        setConfirmations(prevConfirmations =>
+          prevConfirmations.filter(conf => conf.id !== docId)
+        );
+         setDeleteStatus(prev => ({ ...prev, [docId]: null })); // Limpiar estado de borrado
+
+      } catch (err) {
+        console.error(`Error al borrar el documento ${docId}:`, err);
+        setError(`Error al borrar el registro "${displayName}". Inténtalo de nuevo.`);
+        setDeleteStatus(prev => ({ ...prev, [docId]: 'error' })); // Marcar como error
+      }
+    }
+  }, []); // useCallback para evitar recreaciones innecesarias
+
+  // --- Renderizado ---
+  if (isLoading) { /* ... */ }
+  // Mostramos error general o de borrado si existe
+  const displayError = error || Object.values(deleteStatus).some(s => s === 'error')
+    ? error || "Hubo un error al intentar borrar uno o más registros."
+    : null;
+
+  if (displayError && !isLoading) { // Mostrar error si no está cargando
+     return <div className={styles.statusMessage} style={{ color: 'red' }}>{displayError}</div>;
   }
 
   return (
@@ -132,30 +164,42 @@ const AdminPage: React.FC = () => {
         </div>
       </section>
 
-      {/* --- Sección Lista de Envíos --- */}
-      <section>
+            {/* --- Sección Lista de Envíos --- */}
+            <section>
         <h2 className={styles.sectionTitle}>Envíos Recibidos ({confirmations.length})</h2>
-        {confirmations.length === 0 ? (
+        {confirmations.length === 0 && !isLoading ? ( // Asegurar que no se muestre si aún está cargando
           <p>Aún no hay confirmaciones.</p>
         ) : (
           <ul className={styles.confirmationList}>
             {confirmations.map((conf) => {
-              // Generar el nombre para la lista
               const guestNames = conf.guests.map(g => g.nombre.trim()).filter(Boolean).join(', ');
               const displayName = `Form_${guestNames || 'Invitado(s) sin nombre'}`;
+              const isDeleting = deleteStatus[conf.id] === 'deleting';
+              const hasError = deleteStatus[conf.id] === 'error';
 
               return (
-                <li key={conf.id} className={styles.confirmationItem}>
-                  {/* Enlazamos a una futura ruta de detalle */}
-                  {/* Por ahora, solo mostramos el nombre */}
+                <li key={conf.id} className={`${styles.confirmationItem} ${isDeleting ? styles.deleting : ''} ${hasError ? styles.deleteError : ''}`}>
                   <span className={styles.formName}>{displayName}</span>
                   <span className={styles.submitDate}>
                     (Enviado: {conf.submittedAt?.toDate().toLocaleString() ?? 'Fecha desconocida'})
                   </span>
-                  {/* Podríamos añadir un botón/link aquí para ver detalles */}
-                  {/* <Link to={`/adminNovios/${conf.id}`}>Ver Detalles</Link> */}
-                  <button onClick={() => alert(`Detalles para ${conf.id}:\n${JSON.stringify(conf.guests, null, 2)}`)} className={styles.detailsButton}>
-                      Ver Detalles (Simple)
+
+                  {/* Botón simple de detalles (sin cambios) */}
+                  <button
+                     onClick={() => alert(`Detalles para ${conf.id}:\n${JSON.stringify(conf.guests, null, 2)}`)}
+                     className={styles.detailsButton}
+                     disabled={isDeleting} // Deshabilitar mientras se borra
+                  >
+                      Ver Detalles
+                  </button>
+
+                  {/* --- NUEVO BOTÓN DE BORRADO --- */}
+                  <button
+                    onClick={() => handleDelete(conf.id, displayName)}
+                    className={styles.deleteButton}
+                    disabled={isDeleting} // Deshabilitar si ya se está borrando
+                  >
+                    {isDeleting ? 'Borrando...' : 'Borrar'}
                   </button>
                 </li>
               );
@@ -163,9 +207,8 @@ const AdminPage: React.FC = () => {
           </ul>
         )}
       </section>
-       <p className={styles.securityWarning}>
-           <strong>Atención:</strong> Esta página no es segura. No compartas esta URL. Considera añadir autenticación.
-       </p>
+       {/* Advertencia de seguridad (sin cambios) */}
+       <p className={styles.securityWarning}> {/* ... */} </p>
     </div>
   );
 };

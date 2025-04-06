@@ -1,5 +1,5 @@
 // src/services/firestoreService.ts
-import { collection, addDoc, getDocs, query, orderBy } from 'firebase/firestore'; // Timestamp puede ser necesario si haces más cosas con fechas
+import { collection, addDoc, getDocs, query, orderBy, deleteDoc, doc } from 'firebase/firestore'; // Timestamp puede ser necesario si haces más cosas con fechas
 import { db } from '../config/firebase';
 import { ConfirmationFormData } from '../types/confirmation';
 
@@ -29,7 +29,6 @@ export const saveConfirmation = async (formData: ConfirmationFormData): Promise<
   }
 };
 
-// --- NUEVA FUNCIÓN ---
 /**
  * Obtiene todas las confirmaciones de Firestore, ordenadas por fecha de envío.
  * @returns Promise<ConfirmationDocService[]> Un array de documentos, cada uno con su ID.
@@ -58,5 +57,28 @@ export const getAllConfirmations = async (): Promise<ConfirmationDocService[]> =
   } catch (error) {
     console.error('Error obteniendo documentos de Firestore: ', error);
     throw new Error('No se pudieron obtener las confirmaciones de la base de datos.');
+  }
+};
+
+/**
+ * Elimina un documento de confirmación de Firestore por su ID.
+ * @param docId El ID del documento a eliminar.
+ * @returns Promise<void>
+ * @throws Error si falla la eliminación en Firestore.
+ */
+export const deleteConfirmation = async (docId: string): Promise<void> => {
+  if (!docId) {
+      console.error('Error: Se intentó borrar sin ID de documento.');
+      throw new Error('ID de documento no válido.');
+  }
+  try {
+    // Crea una referencia al documento específico usando su ID
+    const confirmationDocRef = doc(db, CONFIRMATIONS_COLLECTION, docId);
+    // Llama a deleteDoc para eliminarlo
+    await deleteDoc(confirmationDocRef);
+    console.log(`Documento con ID ${docId} eliminado con éxito.`);
+  } catch (error) {
+    console.error(`Error eliminando documento ${docId} de Firestore: `, error);
+    throw new Error('No se pudo eliminar la confirmación de la base de datos.');
   }
 };
