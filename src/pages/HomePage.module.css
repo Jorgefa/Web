@@ -96,3 +96,29 @@
       font-size: 0.9rem;
       color: grey; /* Sobrescribimos a gris */
   }
+
+  /* Contenedor para la cuadrícula de GIFs */
+.gifGrid {
+  display: grid; /* Usamos CSS Grid para la cuadrícula */
+  grid-template-columns: repeat(2, 1fr); /* Crea 2 columnas de igual tamaño */
+  gap: var(--spacing-small); /* Espacio entre los GIFs */
+  max-width: 400px; /* Limita el ancho máximo de la cuadrícula */
+  margin: var(--spacing-medium) auto; /* Centra la cuadrícula y añade margen V */
+  padding: 0 var(--spacing-medium); /* Añade padding lateral si es necesario */
+}
+
+/* Estilo para cada elemento GIF dentro de la cuadrícula */
+.gifItem {
+  width: 100%; /* Hace que el GIF ocupe todo el ancho de su celda */
+  height: auto; /* Mantiene la proporción */
+  display: block; /* Evita espacios extra */
+  border-radius: 4px; /* Opcional: bordes redondeados */
+}
+
+/* Estilo para un GIF individual (si necesita ser diferente) */
+.singleGif {
+    max-width: 200px; /* Ejemplo: Limita el tamaño de un GIF individual */
+    margin: var(--spacing-medium) auto; /* Centra el GIF */
+    display: block;
+    border-radius: 8px;
+}
