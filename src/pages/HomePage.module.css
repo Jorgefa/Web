@@ -94,7 +94,6 @@
       text-align: center;
       /* Hereda p/body: Poppins Regular, Azul */
       font-size: 0.9rem;
-      color: grey; /* Sobrescribimos a gris */
   }
 
   /* Contenedor para la cuadrícula de GIFs */
@@ -128,11 +127,11 @@
   display: inline-block; /* Para que respete padding y margin */
   background-color: var(--color-secondary-blue); /* Azul */
   color: var(--color-text-light); /* Texto blanco */
-  padding: var(--spacing-medium) var(--spacing-large); /* Más padding */
-  border-radius: 6px; /* Bordes redondeados */
-  font-family: var(--font-family-display); /* Fuente Display (Roashe) */
-  font-weight: normal; /* Peso normal para Roashe */
-  font-size: 1.8rem; /* Tamaño de fuente grande */
+  padding: 0.5rem 2rem; /* Más padding */
+  border-radius: 32px; /* Bordes redondeados */
+  font-family: var(--font-family-text); /* Fuente Display (Roashe) */
+  font-weight: bold; /* Peso normal para Roashe */
+  font-size: 1rem; /* Tamaño de fuente grande */
   text-decoration: none; /* Quitar subrayado del enlace */
   text-align: center;
   cursor: pointer;

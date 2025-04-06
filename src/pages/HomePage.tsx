@@ -90,9 +90,9 @@ const HomePage: React.FC = () => {
           <p>
            C. la Iglesia, 11, 24546 Arganza, León
           </p>
-          <button className={styles.button}>
-            <a href="https://maps.app.goo.gl/4ibwkG4HcGDh7dLv5" target="_blank" rel="noopener noreferrer">Ver en Google Maps</a>
-          </button>
+          <Link to="https://maps.app.goo.gl/4ibwkG4HcGDh7dLv5" className={styles.confirmButton}> {/* 3. Añade 'to' y clase */}
+            PITANQUEEE?
+         </Link>
         </div>
       </section>
 
@@ -128,9 +128,9 @@ const HomePage: React.FC = () => {
           <p>
            Prefiero que todo esto me lo cuente un entrañable ser de luz.
           </p>
-          <button className={styles.button}>
-            <a href="https://www.youtube.com/watch?v=-H2TnrECM9M&ab_channel=ProgramaV%C3%ADaV" target="_blank" rel="noopener noreferrer">Bajo mi responsabilidad</a>
-          </button>
+          <Link to="https://www.youtube.com/watch?v=-H2TnrECM9M&ab_channel=ProgramaV%C3%ADaV" className={styles.confirmButton}> {/* 3. Añade 'to' y clase */}
+            VALE!
+         </Link>
         </div>
       </section>
 
@@ -153,9 +153,9 @@ const HomePage: React.FC = () => {
           <br />
           LACRO.
         </h1>
-        <div>
+        <div  className={`${styles.subtitle} ${styles.sectionAlignLeftSecondColumn}`}>
           <p>Y para estar bien preaprados, contar las sillas, los platos y sobre todo las vervezas, necesitamso que nos confirmes!</p>
-          <Link to="/confirmacion" className={styles.confirmButton}> {/* 3. Añade 'to' y clase */}
+          <Link to="/confirmacion" className={styles.confirmButton}>
             YO VOY!
          </Link>
         </div>
@@ -175,7 +175,7 @@ const HomePage: React.FC = () => {
             className={styles.gifItem}
           />
         </div>
-        <div>
+        <div  className={`${styles.subtitle} ${styles.sectionAlignLeftSecondColumn}`}>
           <p>Los autobuses tendrán salida y llegada desde Ponferrada con parada en Plaza Julio la Zurtegui (zona de abajo) y La Carrasca (zona alta).</p>
           <p>Confirmaremos horarios y paradas cuando se acerque la fecha.</p>
         </div>
@@ -188,7 +188,7 @@ const HomePage: React.FC = () => {
           <br />
           CODE:
         </h1>
-        <div>
+        <div  className={`${styles.subtitle} ${styles.sectionAlignLeftSecondColumn}`}>
           <p>Feel free and ven como quieras pero pilla la chaqueta por si refresca.</p>
         </div>
         <div className={styles.gifGrid}>
@@ -206,8 +206,9 @@ const HomePage: React.FC = () => {
       </section>
 
       <section className={styles.section}>
-        <span className={styles.nosWordSpecial}>Y CHIMPÚN</span>
         <h1 className={styles.mainTitle}>
+          <span className={styles.nosWordSpecial}>Y CHIMPÚN</span>
+          <br />
           QUE TAN,
           <br />
           QUE CHIQUITI
