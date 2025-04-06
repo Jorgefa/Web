@@ -7,31 +7,29 @@ import HomePage from './pages/HomePage';
 import MobileOnlyWrapper from './components/MobileOnlyWrapper/MobileOnlyWrapper';
 import ConfirmationPage from './pages/ConfirmationPage'; // <-- Nueva importación
 import ThankYouPage from './pages/ThankYouPage';     // <-- Nueva importación
+import AdminPage from './pages/AdminPage';
 // Importa MarianoPage si la tienes
 // import MarianoPage from './pages/MarianoPage';
 
 const router = createBrowserRouter([
+  // ... (ruta '/', '/confirmacion', '/gracias') ...
   {
     path: '/',
-    element: (
-      <MobileOnlyWrapper>
-        <HomePage />
-      </MobileOnlyWrapper>
-    ),
+    element: ( <MobileOnlyWrapper> <HomePage /> </MobileOnlyWrapper> ),
   },
-  { // --- Nueva Ruta ---
+  {
     path: '/confirmacion',
-    element: <ConfirmationPage />, // No necesita MobileOnlyWrapper (o sí, si quieres)
+    element: <ConfirmationPage />,
   },
-  { // --- Nueva Ruta ---
+  {
     path: '/gracias',
     element: <ThankYouPage />,
   },
-  // Añade la ruta de Mariano si la usas
-  // {
-  //   path: '/mariano',
-  //   element: <MarianoPage />,
-  // }
+  { // --- Nueva Ruta Admin ---
+    path: '/adminNovios', // Cambia si quieres una URL más 'secreta'
+    element: <AdminPage />,
+  },
+  // ... (otras rutas como /mariano) ...
 ]);
 
 const App: React.FC = () => {

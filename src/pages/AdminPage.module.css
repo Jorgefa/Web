@@ -1,0 +1,108 @@
+/* src/pages/AdminPage.module.css */
+.adminContainer {
+    padding: var(--spacing-medium);
+    max-width: 900px; /* Limitar ancho para mejor lectura */
+    margin: var(--spacing-medium) auto; /* Centrar */
+    font-family: var(--font-family-text);
+    color: var(--color-text-dark);
+  }
+  
+  .adminTitle {
+    /* Hereda h1: Poppins Bold, Rojo */
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+  }
+  
+  .sectionTitle {
+    /* Hereda h2: Poppins Bold, Rojo */
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-medium);
+    border-bottom: 2px solid var(--color-primary-red);
+    padding-bottom: var(--spacing-small);
+  }
+  
+  .summarySection {
+    background-color: #f8f8f8;
+    padding: var(--spacing-medium);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-large);
+  }
+  
+  .summaryGrid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Columnas responsivas */
+      gap: var(--spacing-small) var(--spacing-medium);
+  }
+  
+  .summaryGrid p {
+      margin: 0;
+      font-size: 0.95rem;
+  }
+  .summaryGrid p strong {
+      color: var(--color-secondary-blue); /* Destacar labels */
+  }
+  
+  
+  .statusMessage {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: var(--spacing-large);
+  }
+  
+  .confirmationList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .confirmationItem {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: var(--spacing-small) var(--spacing-medium);
+    margin-bottom: var(--spacing-small);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
+    gap: var(--spacing-small);
+  }
+  
+  .formName {
+    font-weight: var(--font-weight-bold);
+    flex-basis: 60%; /* Ocupa más espacio */
+    word-break: break-word; /* Evitar desbordamiento de nombres largos */
+  }
+  
+  .submitDate {
+    font-size: 0.8rem;
+    color: #666;
+    flex-basis: 35%; /* Espacio para la fecha */
+    text-align: right;
+  }
+  
+  .detailsButton {
+      background-color: var(--color-secondary-blue);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      flex-grow: 1; /* Ocupa espacio restante si es necesario */
+      max-width: 150px; /* Limitar ancho */
+  }
+  .detailsButton:hover {
+      background-color: #003bb5;
+  }
+  
+  .securityWarning {
+      margin-top: var(--spacing-large);
+      padding: var(--spacing-medium);
+      background-color: #fff3cd; /* Amarillo claro alerta */
+      border: 1px solid #ffeeba;
+      color: #856404; /* Texto oscuro */
+      border-radius: 4px;
+      text-align: center;
+      font-size: 0.9rem;
+  }
