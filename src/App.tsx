@@ -1,6 +1,6 @@
 // src/App.tsx (Añadir las nuevas rutas)
 import React from 'react';
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom'; // Outlet puede que no se necesite aquí directamente
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'; // Outlet puede que no se necesite aquí directamente
 import MainLayout from './layouts/MainLayout';
 
 import HomePage from './pages/HomePage';
