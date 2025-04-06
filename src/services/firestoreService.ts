@@ -1,5 +1,5 @@
 // src/services/firestoreService.ts
-import { collection, addDoc, Timestamp, getDocs, query, orderBy } from 'firebase/firestore'; // Timestamp puede ser necesario si haces más cosas con fechas
+import { collection, addDoc, getDocs, query, orderBy } from 'firebase/firestore'; // Timestamp puede ser necesario si haces más cosas con fechas
 import { db } from '../config/firebase';
 import { ConfirmationFormData } from '../types/confirmation';
 

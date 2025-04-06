@@ -5,15 +5,15 @@ import styles from './HomePage.module.css';
 // GIFs
 import gifMichelDwightBailando from '../assets/gifs/1.gif';
 import gifDiCaprio from '../assets/gifs/2.gif';
-import gifFriends from '../assets/gifs/4.gif';
-import gifNina from '../assets/gifs/5.gif';
+//import gifFriends from '../assets/gifs/4.gif';
+//import gifNina from '../assets/gifs/5.gif';
 import gifGato from '../assets/gifs/6.gif';
 import gifAutobus01 from '../assets/gifs/7.gif';
 import gifAutobus02 from '../assets/gifs/8.gif';
 import gifHomer from '../assets/gifs/9.gif';
 import gifVestidoAmarillo from '../assets/gifs/10.gif'; 
-import gifTextoQueEmocion from '../assets/gifs/GIF_TEXTO_1.gif';
-import gifTextoDeprimera from '../assets/gifs/GIF_TEXTO_2.gif';
+//import gifTextoQueEmocion from '../assets/gifs/GIF_TEXTO_1.gif';
+//import gifTextoDeprimera from '../assets/gifs/GIF_TEXTO_2.gif';
 import { Link } from 'react-router-dom';
 
 

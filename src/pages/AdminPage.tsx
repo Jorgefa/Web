@@ -1,8 +1,8 @@
 // src/pages/AdminPage.tsx
 import React, { useState, useEffect, useMemo } from 'react';
-import { Link } from 'react-router-dom'; // Para enlazar a detalles (si implementamos esa ruta)
+//import { Link } from 'react-router-dom'; // Para enlazar a detalles (si implementamos esa ruta)
 import { getAllConfirmations } from '../services/firestoreService'; // Nueva función que crearemos
-import { ConfirmationFormData, GuestData } from '../types/confirmation';
+import { ConfirmationFormData } from '../types/confirmation';
 import styles from './AdminPage.module.css';
 
 // Extendemos el tipo para incluir el ID del documento de Firestore
@@ -70,9 +70,9 @@ const AdminPage: React.FC = () => {
           // Contar platos y bus solo para adultos
           if (guest.plato === 'carne') totalCarne++;
           if (guest.plato === 'pescado') totalPescado++;
-          if (guest.transporteVuelta === 'no_necesito') busNoNecesito++;
-          if (guest.transporteVuelta === 'si_pronto') busSiPronto++;
-          if (guest.transporteVuelta === 'si_cierre') busSiCierre++;
+          if (guest.transporte === 'no_necesito') busNoNecesito++;
+          if (guest.transporte === 'si_pronto') busSiPronto++;
+          if (guest.transporte === 'si_cierre') busSiCierre++;
         } else if (guest.tipo === 'niño') {
           totalKids++;
         }

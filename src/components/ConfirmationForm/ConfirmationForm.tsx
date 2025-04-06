@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useForm, useFieldArray, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { ConfirmationFormData, GuestData, TransporteType } from '../../types/confirmation';
+import { ConfirmationFormData, GuestData } from '../../types/confirmation';
 import { saveConfirmation } from '../../services/firestoreService';
 import { Timestamp } from 'firebase/firestore'; // --- 1. Importa Timestamp ---
 
