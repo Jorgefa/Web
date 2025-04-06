@@ -14,6 +14,7 @@ import gifHomer from '../assets/gifs/9.gif';
 import gifVestidoAmarillo from '../assets/gifs/10.gif'; 
 import gifTextoQueEmocion from '../assets/gifs/GIF_TEXTO_1.gif';
 import gifTextoDeprimera from '../assets/gifs/GIF_TEXTO_2.gif';
+import { Link } from 'react-router-dom';
 
 
 const HomePage: React.FC = () => {
@@ -154,9 +155,9 @@ const HomePage: React.FC = () => {
         </h1>
         <div>
           <p>Y para estar bien preaprados, contar las sillas, los platos y sobre todo las vervezas, necesitamso que nos confirmes!</p>
-          <button className={styles.button}>
-            <a href="https://www.youtube.com/watch?v=-H2TnrECM9M&ab_channel=ProgramaV%C3%ADaV" target="_blank" rel="noopener noreferrer">YO VOY!</a>
-          </button>
+          <Link to="/confirmacion" className={styles.confirmButton}> {/* 3. Añade 'to' y clase */}
+            YO VOY!
+         </Link>
         </div>
       </section>
 

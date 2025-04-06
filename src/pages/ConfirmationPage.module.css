@@ -1,0 +1,21 @@
+/* src/pages/ConfirmationPage.module.css */
+.pageContainer {
+    padding: var(--spacing-medium);
+    background-color: var(--color-background-light);
+    min-height: 100vh;
+  }
+  
+  .pageTitle {
+    /* Hereda h1: Poppins Bold, Rojo */
+    text-align: center;
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .pageSubtitle {
+     /* Hereda p: Poppins Regular, Azul */
+     text-align: center;
+     margin-bottom: var(--spacing-large);
+     max-width: 500px;
+     margin-left: auto;
+     margin-right: auto;
+  }

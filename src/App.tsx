@@ -1,27 +1,37 @@
-// src/App.tsx (Modificado)
+// src/App.tsx (Añadir las nuevas rutas)
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
 import HomePage from './pages/HomePage';
-import MobileOnlyWrapper from './components/MobileOnlyWrapper/MobileOnlyWrapper.tsx'; // Importa el Wrapper
-// ... otras importaciones de páginas
+import MobileOnlyWrapper from './components/MobileOnlyWrapper/MobileOnlyWrapper';
+import ConfirmationPage from './pages/ConfirmationPage'; // <-- Nueva importación
+import ThankYouPage from './pages/ThankYouPage';     // <-- Nueva importación
+// Importa MarianoPage si la tienes
+// import MarianoPage from './pages/MarianoPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    // Envuelve HomePage con MobileOnlyWrapper
     element: (
       <MobileOnlyWrapper>
         <HomePage />
       </MobileOnlyWrapper>
     ),
   },
-  // ... otras rutas (ellas no necesitan el wrapper si no quieres aplicarles la restricción)
+  { // --- Nueva Ruta ---
+    path: '/confirmacion',
+    element: <ConfirmationPage />, // No necesita MobileOnlyWrapper (o sí, si quieres)
+  },
+  { // --- Nueva Ruta ---
+    path: '/gracias',
+    element: <ThankYouPage />,
+  },
+  // Añade la ruta de Mariano si la usas
   // {
-  //   path: '/confirmacion',
-  //   element: <ConfirmationPage />, // El formulario podría ser accesible en escritorio
-  // },
+  //   path: '/mariano',
+  //   element: <MarianoPage />,
+  // }
 ]);
 
 const App: React.FC = () => {

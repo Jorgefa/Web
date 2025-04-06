@@ -1,0 +1,83 @@
+/* src/components/ConfirmationForm/ConfirmationForm.module.css */
+
+/* ... (Estilos existentes: .form, .guestSection, .guestLegend, etc.) ... */
+
+.formRow {
+  display: flex;
+  gap: var(--spacing-medium);
+  margin-bottom: var(--spacing-medium);
+  /* Por defecto, en fila */
+  flex-direction: row;
+}
+
+.formField {
+  flex: 1;
+  margin-bottom: var(--spacing-medium);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ... (Estilos existentes para labels, inputs, errors, etc.) ... */
+
+.checkboxGroup {
+    margin-bottom: var(--spacing-medium);
+}
+.checkboxGroup label, /* Label principal del grupo */
+.formField label.checkboxLabel { /* Label específico para el select de bus vuelta */
+     display: block;
+     margin-bottom: var(--spacing-small);
+     font-weight: var(--font-weight-bold);
+     color: var(--color-text-dark);
+     font-size: 0.9rem;
+}
+.checkboxItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Espacio entre checkbox y select */
+}
+.checkboxItem input[type="checkbox"] {
+    margin-right: var(--spacing-small);
+    width: auto;
+}
+.checkboxItem label { /* Label al lado del checkbox */
+    margin-bottom: 0;
+    font-weight: var(--font-weight-regular);
+    font-size: 1rem;
+}
+
+
+/* ... (Estilos existentes para botones, etc.) ... */
+
+
+/* --- Media Query para Móviles --- */
+@media (max-width: 600px) {
+  .form {
+    /* Reducir padding en móviles si es necesario */
+    padding: var(--spacing-small);
+  }
+
+  .formRow {
+    /* Cambiar a columna en pantallas pequeñas */
+    flex-direction: column;
+    gap: 0; /* Quitar gap horizontal, el margen inferior de .formField lo gestiona */
+  }
+
+  /* Asegurar que los campos dentro de formRow ocupen todo el ancho */
+  .formRow .formField {
+     /* Ya tienen flex:1, debería funcionar, pero por si acaso: */
+     width: 100%;
+  }
+
+  .guestSection {
+    padding: var(--spacing-small);
+  }
+
+  .guestLegend {
+    font-size: 1.3rem; /* Un poco más pequeño en móvil */
+  }
+
+  .addButton,
+  .submitButton {
+    font-size: 1rem; /* Ajustar tamaño de fuente de botones */
+  }
+}

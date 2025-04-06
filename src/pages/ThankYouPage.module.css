@@ -1,0 +1,41 @@
+/* src/pages/ThankYouPage.module.css */
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    background-color: var(--color-background-light);
+    padding: var(--spacing-large);
+  }
+  
+  .title {
+   /* Hereda h1: Poppins Bold, Rojo */
+   font-size: 3rem;
+   margin-bottom: var(--spacing-medium);
+  }
+  
+  .message {
+    /* Hereda p: Poppins Regular, Azul */
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-small);
+  }
+  
+  .backButton {
+    display: inline-block;
+    margin-top: var(--spacing-large);
+    padding: var(--spacing-small) var(--spacing-large);
+    background-color: var(--color-secondary-blue);
+    color: var(--color-text-light);
+    font-family: var(--font-family-text);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .backButton:hover {
+    background-color: #003bb5; /* Un azul un poco más oscuro */
+    text-decoration: none;
+  }
