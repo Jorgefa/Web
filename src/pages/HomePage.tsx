@@ -15,114 +15,186 @@ import gifAutobus01 from '../assets/gifs/7.gif';
 import gifAutobus02 from '../assets/gifs/8.gif';
 import gifHomer from '../assets/gifs/9.gif';
 import gifVestidoAmarillo from '../assets/gifs/10.gif';
+import gifCris01 from '../assets/gifs/cris01.gif';
+import gifFer01 from '../assets/gifs/fer01.gif';
+
 
 const HomePage: React.FC = () => {
 
   return (
     <div className={styles.pageContainer}>
 
-      {/* Encabezado Nombres */}
+      {/* ENCABEZADO */}
       <section className={styles.standardSection}>
         <p className={styles.headerNames}>cris & jorge</p>
       </section>
 
-      {/* Título Principal Animado */}
-      <HorizontalScrollSection heightMultiplier={5}> {/* Ajusta duración */}
-        <div style={{display: 'flex', flexDirection: 'column'}}>
-          <Parallax
-            translateX={['150%', '-0%']}
-            translateY={['0%', '0%']}
-            easing="easeInOutQuad"
-            shouldAlwaysCompleteAnimation={true}
-            startScroll={1500}
-            endScroll={2000}>
-              <div className={styles.indentedTextBlock}>
-                <p>
-                  Y, por supuesto, estas invitado!!!
-                </p>
-              </div>
-          </Parallax>
-          <div className={styles.titleAndDateWrapper}>
-            <h1 className={styles.animatedMainTitle}>
-              <Parallax
-              translateX={['-150%', '0%']}
+      {/* QUE NOS CASAMOS */}
+      <section className={styles.standardSection}>
+        <HorizontalScrollSection heightMultiplier={5}> {/* Ajusta duración */}
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <Parallax
+              translateX={['150%', '-0%']}
+              translateY={['0%', '0%']}
               easing="easeInOutQuad"
               shouldAlwaysCompleteAnimation={true}
-              startScroll={0}
-              endScroll={500}>
-                <span className={styles.titleTextBlock}>¡QUE</span>
-              </Parallax>
-              <Parallax
-              translateX={['150%', '0%']}
-              easing="easeInOutQuad"
-              shouldAlwaysCompleteAnimation={true}
-              startScroll={200}
-              endScroll={1000}>
-                <span className={`${styles.titleTextBlock} ${styles.titleSpecialFont}`}>NOS</span>
-              </Parallax>
-              <span className={styles.lastTitleLineWrapper}> {/* Contenedor relativo */}
+              startScroll={1500}
+              endScroll={2000}>
+                <div className={styles.indentedTextBlock}>
+                  <p>
+                    Y, por supuesto, estas invitado!!!
+                  </p>
+                </div>
+            </Parallax>
+            <div className={styles.titleAndDateWrapper}>
+              <h1 className={styles.animatedMainTitle}>
                 <Parallax
                 translateX={['-150%', '0%']}
                 easing="easeInOutQuad"
                 shouldAlwaysCompleteAnimation={true}
-                startScroll={800}
-                endScroll={1500}>
-                  <span className={styles.titleTextBlock}>
-                    CASA-<br />MOS!
-                  </span>
+                startScroll={0}
+                endScroll={500}>
+                  <span className={styles.titleTextBlock}>¡QUE</span>
                 </Parallax>
-                {/* --- 2. Mover la Fecha DENTRO del wrapper --- */}
                 <Parallax
-                  translateY={['1500px', '0px']}
-                  translateX={['-50px', '-50px']}
-                  shouldAlwaysCompleteAnimation={true}
-                  className={styles.animatedDate}
-                  startScroll={800}
-                  endScroll={1500} 
-                >
-                  <span className={styles.dateNumberBold}>30</span><br/>
-                  08<br/>
-                  <span className={styles.dateNumberBold}>20</span><br/>
-                  <span className={styles.dateNumberBold}>25</span>
+                translateX={['150%', '0%']}
+                easing="easeInOutQuad"
+                shouldAlwaysCompleteAnimation={true}
+                startScroll={200}
+                endScroll={1000}>
+                  <span className={`${styles.titleTextBlock} ${styles.titleSpecialFont}`}>NOS</span>
                 </Parallax>
-              </span>
-            </h1>
+                <span className={styles.lastTitleLineWrapper}> {/* Contenedor relativo */}
+                  <Parallax
+                  translateX={['-150%', '0%']}
+                  easing="easeInOutQuad"
+                  shouldAlwaysCompleteAnimation={true}
+                  startScroll={800}
+                  endScroll={1500}>
+                    <span className={styles.titleTextBlock}>
+                      CASA-<br />MOS!
+                    </span>
+                  </Parallax>
+                  {/* --- 2. Mover la Fecha DENTRO del wrapper --- */}
+                  <Parallax
+                    translateY={['1500px', '0px']}
+                    translateX={['-50px', '-50px']}
+                    shouldAlwaysCompleteAnimation={true}
+                    className={styles.animatedDate}
+                    startScroll={800}
+                    endScroll={1500} 
+                    >
+                    <span className={styles.dateNumberBold}>30</span><br/>
+                    08<br/>
+                    <span className={styles.dateNumberBold}>20</span><br/>
+                    <span className={styles.dateNumberBold}>25</span>
+                  </Parallax>
+                </span>
+              </h1>
+            </div>
+          </div>        
+        </HorizontalScrollSection>
+      </section>
+
+      {/* GIFS 01 */}
+      <section className={styles.standardSection}>
+        <HorizontalScrollSection heightMultiplier={3}> {/* Duración estándar */}
+          <div className={styles.overlappingGifContainer}>
+            <Parallax
+            className={`${styles.overlappingGifItem} ${styles.gifLayer1}`}
+            translateX={['-200%', '0%']}
+            easing="easeInOutQuad"
+            shouldAlwaysCompleteAnimation={true}
+            startScroll={2000}
+            endScroll={4000}>
+              <img src={gifFer01} alt="es una movida..." />
+            </Parallax>
+            <Parallax
+            className={`${styles.overlappingGifItem} ${styles.gifLayer2}`}
+            translateX={['200%', '0%']}
+            easing="easeInOutQuad"
+            shouldAlwaysCompleteAnimation={true}
+            startScroll={3000}
+            endScroll={4000}>
+              <img src={gifCris01} alt="holiiii" />
+            </Parallax>
+            <Parallax
+            className={`${styles.overlappingGifItem} ${styles.gifLayer3}`}
+            translateX={['-200%', '0%']}
+            easing="easeInOutQuad"
+            shouldAlwaysCompleteAnimation={true}
+            startScroll={3500}
+            endScroll={4500}>
+              <img src={gifMichelDwightBailando} alt="Jaranaaa" />
+            </Parallax>
           </div>
-        </div>        
-      </HorizontalScrollSection>
+        </HorizontalScrollSection>
+      </section>
 
-      {/* GIFs Superpuestos Animados */}
-      <HorizontalScrollSection heightMultiplier={3}> {/* Duración estándar */}
-        <div className={styles.overlappingGifContainer}>
-          <Parallax translateX={['-100%', '0%']} className={`${styles.overlappingGifItem} ${styles.gifLayer1}`}>
-            <img src={gifMichelDwightBailando} alt="Michael Scott y Dwight bailando" />
-          </Parallax>
-          <Parallax translateX={['0%', '0%']} className={`${styles.overlappingGifItem} ${styles.gifLayer2}`}>
-            <img src={gifDiCaprio} alt="Leonardo DiCaprio brindando" />
-          </Parallax>
-          <Parallax translateX={['100%', '0%']} className={`${styles.overlappingGifItem} ${styles.gifLayer3}`}>
-            <img src={gifVestidoAmarillo} alt="Mujer con vestido amarillo posando" />
-          </Parallax>
-        </div>
-      </HorizontalScrollSection>
-
-      {/* Sección Fecha y Lugar */}
+      {/* FECHA Y LUGAR */}
       <section className={`${styles.standardSection} ${styles.sectionAlignLeft}`}>
-        <h2 className={styles.sectionTitle}>
-            30
-            <br />
-            <span className={styles.titleSpecialFont}>Agosto</span>
-            <br />
-            2025
-        </h2>
-        <div className={styles.indentedTextBlock}>
-          <p>13:30h</p>
-          <p>En La Casona de Pitacum.</p>
-          <p>C. la Iglesia, 11, 24546 Arganza, León</p>
-          <a href="https://maps.app.goo.gl/4ibwkG4HcGDh7dLv5" className={styles.actionButton} target="_blank" rel="noopener noreferrer">
-            LLÉVAME CON MAPS
-          </a>
-        </div>
+        <HorizontalScrollSection heightMultiplier={3}> {/* Duración estándar */}
+          <div style={{display: 'flex', flexDirection: 'column'}}>
+            <Parallax
+              translateX={['-200%', '0%']}
+              easing="easeInOutQuad"
+              shouldAlwaysCompleteAnimation={true}
+              startScroll={5500}
+              endScroll={7000}>
+              <h2 className={styles.sectionTitle}>
+                  30
+                  <br />
+                  <span className={styles.titleSpecialFont}>Agosto</span>
+                  <br />
+                  2025
+              </h2>
+            </Parallax>
+            <Parallax
+              translateX={['200%', '0%']}
+              easing="easeInOutQuad"
+              shouldAlwaysCompleteAnimation={true}
+              startScroll={6000}
+              endScroll={7500}>
+              <div className={styles.indentedTextBlock}>
+                <Parallax
+                translateX={['200%', '0%']}
+                easing="easeInOutQuad"
+                shouldAlwaysCompleteAnimation={true}
+                startScroll={6000}
+                endScroll={7200}>
+                  <p>13:30h</p>
+                </Parallax>
+                <Parallax
+                translateX={['200%', '0%']}
+                easing="easeInOutQuad"
+                shouldAlwaysCompleteAnimation={true}
+                startScroll={6300}
+                endScroll={7200}>
+                  <p>En La Casona de Pitacum.</p>
+                </Parallax>
+                <Parallax
+                translateX={['200%', '0%']}
+                easing="easeInOutQuad"
+                shouldAlwaysCompleteAnimation={true}
+                startScroll={6400}
+                endScroll={7200}>
+                  <p>C. la Iglesia, 11, 24546 Arganza, León</p>
+                </Parallax>
+                <Parallax
+                translateX={['200%', '0%']}
+                easing="easeInOutQuad"
+                shouldAlwaysCompleteAnimation={true}
+                startScroll={6900}
+                endScroll={7500}>
+                  <a href="https://maps.app.goo.gl/4ibwkG4HcGDh7dLv5" className={styles.actionButton} target="_blank" rel="noopener noreferrer">
+                    LLÉVAME CON MAPS
+                  </a>
+                </Parallax>
+              </div>
+            </Parallax>
+
+          </div>
+        </ HorizontalScrollSection>
       </section>
 
       {/* Sección Grid de GIFs */}
