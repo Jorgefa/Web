@@ -1,177 +1,215 @@
 /* src/pages/HomePage.module.css */
 
-.container {
-    padding: var(--spacing-medium);
-    width: 100%;
-    max-width: 100vw;
-    overflow-x: hidden;
-    background-color: var(--color-background-light);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .section {
-    margin-bottom: var(--spacing-large);
-    text-align: center;
-  }
+/* --- Contenedor Principal y Secciones Base --- */
+.pageContainer {
+  padding: var(--spacing-medium);
+  width: 100%;
+  max-width: 100vw; /* Evita desbordamiento horizontal base */
+  background-color: var(--color-background-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-  /* MODIFICADOR: Clase para alinear una sección a la izquierda */
+.standardSection {
+  margin-bottom: calc(var(--spacing-large) * 2.5); /* Mayor espacio entre secciones */
+  width: 100%;
+}
+
+/* Modificadores de Alineación para Secciones */
 .sectionAlignLeft {
-    text-align: left;
-  }
+  text-align: left;
+}
+.sectionCentered {
+  text-align: center;
+}
 
-  /* MODIFICADOR: Clase para alinear una sección en segunda columna */
-.sectionAlignLeftSecondColumn {
-    text-align: left;
-    padding-left: 30%;
-  }
-  
-  /* --- ESTILOS DE TEXTO ESPECÍFICOS PARA HOMEPAGE --- */
-  
-  /* Título Principal "QUE NOS CASAMOS" */
-  .mainTitle {
-    /* Hereda h1: Poppins Bold, Rojo (¡PERO lo cambiaremos!) */
-    font-size: clamp(4rem, 18vw, 8rem); /* Ajusta tamaño */
-    line-height: 1;
-    text-align: left;
-    /* No necesita definir font/color aquí si hereda bien,
-       a menos que queramos la variación Roashe */
-  }
-  
-  /* Variación: Clase para usar Roashe en elementos display */
-  /* Usaremos esta clase junto con .mainTitle o .sectionTitle en el TSX */
-  .fontDisplayRoashe {
-    font-family: var(--font-family-display); /* Roashe Serif */
-    font-weight: normal; /* Roashe es normal weight */
-    /* El color (rojo) se hereda del h1/h2 base, no hace falta repetirlo */
-  }
-  
-  /* Span específico para "NOS" si necesitas estilo diferente DENTRO del título */
-  /* Si TODO el .mainTitle usa Roashe, quizás no necesites esto */
-  /* Si .mainTitle es Poppins y solo NOS es Roashe, usarías esto: */
-  
-  .nosWordSpecial {
-    font-family: var(--font-family-display);
-    font-weight: normal;
-  }
-  
-  
-  
-  /* Subtítulo (Debajo de "QUE NOS...") */
-  .subtitle {
-    /* Hereda p/body: Poppins Regular, Azul */
-    font-size: 1.1rem;
-    line-height: 1.4;
-    text-align: left;
-    margin-bottom: var(--spacing-large);
-    /* Si lo quieres en blanco, añadirías la clase global 'text-color-light' en el TSX */
-    /* Si lo quieres en negro, añadirías la clase global 'text-color-dark' en el TSX */
-  
-  }
-  
-  /* Títulos de Sección (ej: "30 AGOSTO 2025") */
-  .sectionTitle {
-    /* Hereda h2: Poppins Bold, Rojo */
-    font-size: 2.5rem; /* Ajusta tamaño */
-    /* Si quieres que ESTE título sea Roashe, añade la clase .fontDisplayRoashe en TSX */
-  }
-  
-  /* Párrafos dentro de las secciones */
-  .section p {
-    /* Hereda p/body: Poppins Regular, Azul */
+/* --- Estilos de Texto Específicos --- */
+
+.headerNames {
+    font-family: var(--font-family-text);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary-blue);
+    text-align: center;
     font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: var(--spacing-small);
-     /* Por defecto son azules. Si necesitas uno blanco, usa la clase global */
-     /* Ejemplo de cómo se vería en TSX: <p className='text-color-light'>Texto blanco</p> */
-  }
-  
-  /* Footer */
-  .footer {
-      margin-top: auto;
-      padding-top: var(--spacing-large);
-      text-align: center;
-      /* Hereda p/body: Poppins Regular, Azul */
-      font-size: 0.9rem;
-  }
-
-  /* Contenedor para la cuadrícula de GIFs */
-.gifGrid {
-  display: grid; /* Usamos CSS Grid para la cuadrícula */
-  grid-template-columns: repeat(2, 1fr); /* Crea 2 columnas de igual tamaño */
-  gap: var(--spacing-small); /* Espacio entre los GIFs */
-  max-width: 400px; /* Limita el ancho máximo de la cuadrícula */
-  margin: var(--spacing-medium) auto; /* Centra la cuadrícula y añade margen V */
-  padding: 0 var(--spacing-medium); /* Añade padding lateral si es necesario */
+    margin-top: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
 }
 
-/* --- Estilos para GIFs Superpuestos --- */
+/* --- Título Principal y Fecha Animados --- */
 
-.gifOverlapContainer {
-  position: relative; /* MUY IMPORTANTE: Establece el contexto de posicionamiento */
-  width: 90%;      /* O el ancho que desees para el contenedor */
-  max-width: 450px; /* Limita el tamaño máximo */
-  /* --- AJUSTA LA ALTURA: Debe ser suficiente para contener los GIFs solapados --- */
-  /* Puedes empezar con un valor fijo y ajustarlo, o calcularlo */
-  height: 350px;    /* Ejemplo: AJUSTAR ESTA ALTURA */
-  margin: var(--spacing-large) auto; /* Centrar contenedor y darle espacio */
-  /* border: 1px dashed red; */ /* Útil para depurar y ver los límites */
+/* 1. Contenedor Wrapper para ambos elementos */
+.titleAndDateWrapper {
+  position: relative; /* Contexto para posicionar la fecha absolutamente */
+  width: 90%;         /* Ancho total del área combinada */
+  max-width: 700px;   /* Ajustar según necesidad */
+  /* La altura será determinada por el contenido (título + espacio para fecha) */
+  /* border: 1px solid orange; */ /* Para depurar */
+  /* Asegurar que el contenido dentro pueda alinearse */
+   display: flex; /* Opcional: usar flex si ayuda a alinear h1 y fecha */
+   align-items: flex-end; /* Alinear items abajo? Ajustar */
+   justify-content: left; /* Centrar contenido? Ajustar */
 }
 
-/* Estilo base común para todos los GIFs dentro del contenedor */
-.gifItem {
-  display: block; /* Asegura que sea un bloque */
-  position: absolute; /* Posicionamiento absoluto DENTRO del contenedor */
-  /* --- AJUSTA EL ANCHO de los gifs --- */
-  width: 65%;      /* Ejemplo: 65% del ancho del CONTENEDOR */
-  height: auto;    /* Mantiene la proporción */
-  border-radius: 8px; /* Opcional: bordes redondeados */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Opcional: sombra */
+
+/* Título Principal Animado (H1) */
+.animatedMainTitle {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-red);
+  font-size: clamp(4rem, 18vw, 8rem);
+  line-height: 1;
+  text-align: left;
+  margin: 0; /* Sin margen, centrado por el stickyElement */
+  overflow: visible; /* Importante para parallax */
+  width: auto;
+  flex-shrink: 0; /* Para que no se encoja si usamos flex en el wrapper */
 }
 
-/* --- Posicionamiento INDIVIDUAL de cada GIF --- */
-/* ¡AJUSTA ESTOS VALORES PARA TU DISEÑO! top/left/z-index */
-
-.gifOverlap1 { /* GIF Secundario 1 (ej: capa inferior izquierda) */
-  top: 10%;
-  left: 10%;
-  z-index: 1; /* Más bajo */
+.titleTextBlock { /* Bloque dentro del H1 animado */
+  display: block;
+}
+.titleSpecialFont { /* Modificador para fuente Roashe */
+  font-family: var(--font-family-display);
+  font-weight: normal;
 }
 
-.gifOverlap2 { /* GIF Principal (ej: capa del medio, más centrada) */
-  top: 70%;
-  left: 20%; /* Un poco más a la derecha */
-  z-index: 2; /* Encima del anterior */
+/* 1. Contenedor relativo SOLO para la última línea y la fecha */
+.lastTitleLineWrapper {
+  position: relative; /* Contexto para la fecha absoluta */
+  display: inline-block; /* Para que envuelva solo "CASA-MOS!" */
+  /* border: 1px dotted green; */ /* Depuración */
 }
 
-.gifOverlap3 { /* GIF Secundario 2 (ej: capa superior derecha) */
-  top: 35%;
-  left: 35%; /* Más a la derecha y abajo */
-  width: 70%; /* Quizás un poco más grande */
-  z-index: 3; /* Encima de todos */
+/* 3. Ajustar posicionamiento de la Fecha */
+.animatedDate {
+  position: absolute; /* Absoluto respecto a .lastTitleLineWrapper */
+  /* --- AJUSTAR POSICIÓN RELATIVA A "MOS!" --- */
+  top: 50%; /* Intentar centrar verticalmente con "MOS!" */
+  left: 100%; /* Empezar justo a la derecha del wrapper */
+  transform: translateY(-50%); /* Ajuste fino para centrado vertical */
+  margin-left: 1rem; /* Espacio horizontal entre "MOS!" y la fecha */
+
+  /* --- Estilos de la fecha (sin cambios necesarios probablemente) --- */
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-secondary-blue);
+  font-size: clamp(1rem, 12vw, 1.8rem); /* Hacerla un poco más pequeña? AJUSTAR */
+  line-height: 1; /* Más junta? AJUSTAR */
+  text-align: left; /* Alinear números a la izquierda puede quedar mejor ahora */
+  z-index: 5;
+  /* border: 1px solid cyan; */ /* Depuración */
 }
 
-/* Estilo para el botón/enlace "YO VOY!" */
-.confirmButton {
-  display: inline-block; /* Para que respete padding y margin */
-  background-color: var(--color-secondary-blue); /* Azul */
-  color: var(--color-text-light); /* Texto blanco */
-  padding: 0.5rem 2rem; /* Más padding */
-  border-radius: 32px; /* Bordes redondeados */
-  font-family: var(--font-family-text); /* Fuente Display (Roashe) */
-  font-weight: bold; /* Peso normal para Roashe */
-  font-size: 1rem; /* Tamaño de fuente grande */
-  text-decoration: none; /* Quitar subrayado del enlace */
+.dateNumberBold {
+  font-weight: var(--font-weight-bold);
+}
+
+/* Títulos de Sección Normales (H2) */
+.sectionTitle {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-red);
+  font-size: clamp(2.5rem, 12vw, 4.5rem);
+  line-height: 1.1;
+  text-align: inherit; /* Hereda alineación de la sección padre */
+  margin-bottom: var(--spacing-medium);
+}
+/* Reutiliza .titleSpecialFont si necesitas Roashe en H2 */
+
+
+/* Bloques de Texto */
+.indentedTextBlock { /* Para texto con margen izquierdo */
+  text-align: left;
+  padding-left: 30%; /* Ajustar indentación */
+  margin-top: var(--spacing-medium);
+}
+
+.centeredTextBlock { /* Para texto centrado */
+    max-width: 600px;
+    margin: var(--spacing-medium) auto 0 auto;
+    text-align: center;
+    color: var(--color-text-dark);
+}
+
+/* Estilos comunes para párrafos dentro de bloques de texto */
+.indentedTextBlock p,
+.centeredTextBlock p {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-bold);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-medium);
+}
+
+/* Botones/Links de Acción */
+.actionButton {
+  display: inline-block;
+  background-color: var(--color-secondary-blue);
+  color: var(--color-text-light);
+  padding: 0.6rem 1.8rem;
+  border-radius: 32px;
+  font-family: var(--font-family-text);
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-decoration: none;
   text-align: center;
   cursor: pointer;
-  margin-top: var(--spacing-medium); /* Espacio arriba */
-  border: none; /* Asegurar que no tenga borde */
-  transition: transform 0.2s ease, background-color 0.2s ease; /* Pequeña animación */
+  margin-top: var(--spacing-medium);
+  border: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.actionButton:hover {
+  background-color: #003bb5;
+  transform: scale(1.03);
+  text-decoration: none;
 }
 
-.confirmButton:hover {
-  background-color: #003bb5; /* Azul un poco más oscuro */
-  transform: scale(1.03); /* Ligeramente más grande al pasar el ratón */
-  text-decoration: none; /* Asegurar que no aparezca subrayado */
+
+/* --- Estilos GIFs Superpuestos (Contenido para HorizontalScrollSection) --- */
+.overlappingGifContainer {
+  position: relative;
+  width: 90%;
+  max-width: 450px;
+  height: 400px;   /* AJUSTAR ALTURA */
+  margin: 0; /* Centrado por stickyElement */
+}
+.overlappingGifItem {
+  display: block;
+  position: absolute;
+  width: 65%; /* AJUSTAR TAMAÑO BASE GIF */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* Posicionamiento/Tamaño FINAL de cada capa - AJUSTAR */
+.gifLayer1 { top: 5%; left: 5%; z-index: 1; width: 60%; }
+.gifLayer2 { top: 25%; left: 25%; width: 70%; z-index: 2; } /* Capa principal */
+.gifLayer3 { top: 50%; left: 40%; z-index: 3; width: 60%; }
+
+
+/* --- Estilos Cuadrícula Simple de GIFs --- */
+.simpleGifGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Columnas auto-ajustables */
+  gap: var(--spacing-medium);
+  max-width: 500px;
+  margin: var(--spacing-medium) auto; /* Centrar */
+}
+.gridGifItem {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+/* --- Footer --- */
+.pageFooter {
+  margin-top: auto;
+  padding: var(--spacing-large) 0;
+  text-align: center;
+  font-family: var(--font-family-display); /* Roashe */
+  font-weight: normal;
+  font-size: 1.5rem;
+  color: var(--color-primary-red); /* Rojo */
 }

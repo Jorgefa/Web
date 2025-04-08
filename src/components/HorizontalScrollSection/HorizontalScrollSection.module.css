@@ -1,0 +1,19 @@
+/* src/components/HorizontalScrollSection/HorizontalScrollSection.module.css */
+
+.horizontalScrollContainer {
+    position: relative; /* Necesario para el sticky child */
+    width: 100%; /* Ocupa el ancho disponible */
+    /* La altura se establece inline desde las props del componente */
+  }
+  
+  .stickyElement {
+    position: sticky;
+    top: 0;         /* Se pega arriba */
+    height: 100vh;  /* Ocupa toda la ventana mientras está pegado */
+    width: 100%;
+    overflow: hidden; /* Evita barras de scroll dentro del sticky */
+    /* Centra el contenido hijo por defecto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
