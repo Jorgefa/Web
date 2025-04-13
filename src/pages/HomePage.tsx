@@ -64,38 +64,36 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* GIFS 01 */}
-      <section className={styles.standardSection}>
-        <HorizontalScrollSection heightMultiplier={3}> {/* Duración estándar */}
+      <section className={styles.standardSectionGifs}>
           <div className={styles.overlappingGifContainer}>
             <Parallax
             className={`${styles.overlappingGifItem} ${styles.gifLayer1}`}
-            translateX={['-200%', '0%']}
+            translateX={['-0%', '0%']}
             easing="easeInOutQuad"
             shouldAlwaysCompleteAnimation={true}
-            startScroll={2000}
-            endScroll={4000}>
+            startScroll={500}
+            endScroll={1000}>
               <img src={gifFer01} alt="es una movida..." />
             </Parallax>
             <Parallax
             className={`${styles.overlappingGifItem} ${styles.gifLayer2}`}
-            translateX={['200%', '0%']}
+            translateX={['0%', '0%']}
             easing="easeInOutQuad"
             shouldAlwaysCompleteAnimation={true}
-            startScroll={3000}
-            endScroll={4000}>
+            startScroll={500}
+            endScroll={1000}>
               <img src={gifCris01} alt="holiiii" />
             </Parallax>
             <Parallax
             className={`${styles.overlappingGifItem} ${styles.gifLayer3}`}
-            translateX={['-200%', '0%']}
+            translateX={['-0%', '0%']}
             easing="easeInOutQuad"
             shouldAlwaysCompleteAnimation={true}
-            startScroll={3500}
-            endScroll={4500}>
+            startScroll={500}
+            endScroll={1000}>
               <img src={gifMichelDwightBailando} alt="Jaranaaa" />
             </Parallax>
           </div>
-        </HorizontalScrollSection>
       </section>
 
       {/* FECHA Y LUGAR */}

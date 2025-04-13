@@ -9,15 +9,21 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  
 }
 
 .headerSection {
-  margin-bottom: calc(var(--spacing-large)); /* Mayor espacio entre secciones */
+  margin-bottom: calc(var(--spacing-large)*1); /* Mayor espacio entre secciones */
   width: 100%;
 }
 
 .standardSection {
-  margin-bottom: calc(var(--spacing-large) * 2.5); /* Mayor espacio entre secciones */
+  margin-bottom: calc(var(--spacing-medium) * 1); /* Mayor espacio entre secciones */
+  width: 100%;
+}
+.standardSectionGifs {
+  margin-bottom: calc(var(--spacing-medium) * 1); /* Mayor espacio entre secciones */
   width: 100%;
 }
 
@@ -77,13 +83,17 @@
 .titleSpecialFont { /* Modificador para fuente Roashe */
   font-family: var(--font-family-display);
   font-weight: normal;
+  font-size: 8rem;
+  line-height: 80%;
+  padding-top: 0rem;
+  padding-bottom: .5rem;
 }
 
 /* 1. Contenedor relativo SOLO para la última línea y la fecha */
 .lastTitleLineWrapper {
   position: relative; /* Contexto para la fecha absoluta */
   display: flex; /* Para que envuelva solo "CASA-MOS!" */
-  border: 1px dotted green;
+  /* border: 1px dotted green; */
 }
 
 /* 3. Ajustar posicionamiento de la Fecha */
@@ -198,9 +208,9 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 /* Posicionamiento/Tamaño FINAL de cada capa - AJUSTAR */
-.gifLayer1 { top: -15%; left: 5%; z-index: 1; width: 60%; }
-.gifLayer2 { top: 25%; left: 40%; width: 70%; z-index: 2; }
-.gifLayer3 { top: 70%; left: 15%; z-index: 3; width: 60%; }
+.gifLayer1 { top: 20%; left: 5%; width: 60%; z-index: 2 }
+.gifLayer2 { top: 40%; left: 40%; width: 70%; z-index: 1 }
+.gifLayer3 { top: 80%; left: 15%; width: 60%; z-index: 3; }
 
 
 /* --- Estilos Cuadrícula Simple de GIFs --- */
