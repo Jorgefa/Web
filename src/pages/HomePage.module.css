@@ -77,7 +77,18 @@
   line-height: 1;
   text-align: left;
   margin: 0; /* Sin margen, centrado por el stickyElement */
-  overflow: visible; /* Importante para parallax */
+  width: auto;
+  flex-shrink: 0; /* Para que no se encoja si usamos flex en el wrapper */
+}
+.animatedMainTitleBlue {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary-blue);
+  font-size: clamp(4rem, 22vw, 8rem);
+  padding-top: 90px;
+  line-height: 1;
+  text-align: left;
+  margin: 0; /* Sin margen, centrado por el stickyElement */
   width: auto;
   flex-shrink: 0; /* Para que no se encoja si usamos flex en el wrapper */
 }
@@ -89,6 +100,14 @@
   font-family: var(--font-family-display);
   font-weight: normal;
   font-size: 8rem;
+  line-height: 80%;
+  padding-top: 0rem;
+  padding-bottom: .5rem;
+}
+.titleSpecialFontCode { /* Modificador para fuente Roashe */
+  font-family: var(--font-family-display);
+  font-weight: normal;
+  font-size: 5rem;
   line-height: 80%;
   padding-top: 0rem;
   padding-bottom: .5rem;
@@ -197,6 +216,11 @@
   color: var(--color-text-light);
   position: relative;
 }
+.textFeelFree {
+  font-weight: 700;
+  z-index: 1;
+  position: relative;
+}
 .textWhite {
   font-family: var(--font-family-text);
   font-weight: var(--font-weight-light);
@@ -286,6 +310,9 @@
 .gifLayer9 { top: 30%; left: 50%; width: 60%; z-index: 3; }
 .gifLayer10 {
   position: absolute; top: 100%; left: -40%; width: 60%; z-index: 3; }
+.gifLayer11 { top: 10%; left: 50%; width: 60%; z-index: 3; }
+.gifLayer12 { top: 50%; left: 50%; width: 60%; z-index: 3; }
+.gifLayer13 {  top: 30%; left: 00%; width: 60%; z-index: 3; }
 
 
 /* Fondos */

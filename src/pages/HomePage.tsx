@@ -18,6 +18,7 @@ import gifAutobus02 from '../assets/gifs/8.gif';
 import gifHomer from '../assets/gifs/9.gif';
 import gifVestidoAmarillo from '../assets/gifs/10.gif';
 import gifCris01 from '../assets/gifs/cris01.gif';
+import gifCris02 from '../assets/gifs/cris02.gif';
 import gifFer01 from '../assets/gifs/fer01.gif';
 import gifMadreMia from '../assets/gifs/GIF_TEXTO_1.gif';
 import gifConductor from '../assets/gifs/GIF_TEXTO_2.gif';
@@ -262,18 +263,45 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Sección Dresscode */}
-      <section className={`${styles.standardSection} ${styles.sectionCentered}`}>
-        <h2 className={styles.sectionTitle}>
+      <section className={styles.standardSection}>
+        <h2 className={styles.animatedMainTitleBlue}>
           DRESS
           <br />
-          CODE:
+          <span className={styles.titleSpecialFontCode}>CODE</span>
         </h2>
-        <div className={styles.centeredTextBlock}>
-          <p>Feel free and ven como quieras pero pilla la chaqueta por si refresca.</p>
+        <div className={styles.indentedTextBlock}>
+          <span className={styles.textFeelFree}>
+          Feel free and ven como quieras pero pilla la chaqueta por si refresca.
+          </span>
         </div>
-        <div className={styles.simpleGifGrid}>
-          <img src={gifHomer} alt="Homer Simpson elegante y luego informal" className={styles.gridGifItem} />
-          <img src={gifVestidoAmarillo} alt="Mujer con vestido amarillo posando" className={styles.gridGifItem} />
+        <div className={styles.overlappingGifContainer}>
+          <Parallax
+          className={`${styles.overlappingGifItem} ${styles.gifLayer11}`}
+          translateY={['0%', '0%']}
+          easing="easeInOutQuad"
+          shouldAlwaysCompleteAnimation={true}
+          startScroll={100}
+          endScroll={1000}>
+            <img src={gifHomer} alt="uuuuuuuuuuuuh" />
+          </Parallax>
+          <Parallax
+          className={`${styles.overlappingGifItem} ${styles.gifLayer12}`}
+          translateY={['-0%', '0%']}
+          easing="easeInOutQuad"
+          shouldAlwaysCompleteAnimation={true}
+          startScroll={100}
+          endScroll={1000}>
+            <img src={gifVestidoAmarillo} alt="holiiii" />
+          </Parallax>
+          <Parallax
+          className={`${styles.overlappingGifItem} ${styles.gifLayer13}`}
+          translateY={['-0%', '0%']}
+          easing="easeInOutQuad"
+          shouldAlwaysCompleteAnimation={true}
+          startScroll={100}
+          endScroll={1000}>
+            <img src={gifCris02} alt="holiiii" />
+          </Parallax>
         </div>
       </section>
 
