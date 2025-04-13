@@ -2,13 +2,18 @@
 
 /* --- Contenedor Principal y Secciones Base --- */
 .pageContainer {
-  padding: var(--spacing-medium);
+  padding: var(--spacing-medium2);
   width: 100%;
   max-width: 100vw; /* Evita desbordamiento horizontal base */
   background-color: var(--color-background-light);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.headerSection {
+  margin-bottom: calc(var(--spacing-large)); /* Mayor espacio entre secciones */
+  width: 100%;
 }
 
 .standardSection {
@@ -33,7 +38,7 @@
     text-align: center;
     font-size: 1rem;
     margin-top: var(--spacing-medium);
-    margin-bottom: var(--spacing-large);
+    margin-bottom: var(--spacing-medium);
 }
 
 /* --- Título Principal y Fecha Animados --- */
@@ -57,7 +62,7 @@
   font-family: var(--font-family-text);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary-red);
-  font-size: clamp(4rem, 18vw, 8rem);
+  font-size: clamp(4rem, 22vw, 8rem);
   line-height: 1;
   text-align: left;
   margin: 0; /* Sin margen, centrado por el stickyElement */
@@ -77,8 +82,8 @@
 /* 1. Contenedor relativo SOLO para la última línea y la fecha */
 .lastTitleLineWrapper {
   position: relative; /* Contexto para la fecha absoluta */
-  display: inline-block; /* Para que envuelva solo "CASA-MOS!" */
-  /* border: 1px dotted green; */ /* Depuración */
+  display: flex; /* Para que envuelva solo "CASA-MOS!" */
+  border: 1px dotted green;
 }
 
 /* 3. Ajustar posicionamiento de la Fecha */
@@ -101,9 +106,19 @@
   /* border: 1px solid cyan; */ /* Depuración */
 }
 
-.dateNumberBold {
+.dateNumber {
   font-weight: var(--font-weight-bold);
+  color: var(--color-secondary-blue);
+  padding-left: 3%;
+  align-content: center;
+  font-size: 1rem
 }
+
+.dateNumberReg {
+  font-weight: var(--font-weight-regular);
+  color: var(--color-secondary-blue);
+}
+
 
 /* Títulos de Sección Normales (H2) */
 .sectionTitle {

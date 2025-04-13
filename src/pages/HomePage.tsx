@@ -25,75 +25,42 @@ const HomePage: React.FC = () => {
     <div className={styles.pageContainer}>
 
       {/* ENCABEZADO */}
-      <section className={styles.standardSection}>
+      <section className={styles.headerSection}>
         <p className={styles.headerNames}>cris & jorge</p>
       </section>
 
       {/* QUE NOS CASAMOS */}
       <section className={styles.standardSection}>
-        <HorizontalScrollSection heightMultiplier={5}> {/* Ajusta duración */}
           <div style={{display: 'flex', flexDirection: 'column'}}>
-            <Parallax
-              translateX={['150%', '-0%']}
-              translateY={['0%', '0%']}
-              easing="easeInOutQuad"
-              shouldAlwaysCompleteAnimation={true}
-              startScroll={1500}
-              endScroll={2000}>
-                <div className={styles.indentedTextBlock}>
-                  <p>
-                    Y, por supuesto, estas invitado!!!
-                  </p>
-                </div>
-            </Parallax>
             <div className={styles.titleAndDateWrapper}>
               <h1 className={styles.animatedMainTitle}>
-                <Parallax
-                translateX={['-150%', '0%']}
-                easing="easeInOutQuad"
-                shouldAlwaysCompleteAnimation={true}
-                startScroll={0}
-                endScroll={500}>
                   <span className={styles.titleTextBlock}>¡QUE</span>
-                </Parallax>
-                <Parallax
-                translateX={['150%', '0%']}
-                easing="easeInOutQuad"
-                shouldAlwaysCompleteAnimation={true}
-                startScroll={200}
-                endScroll={1000}>
                   <span className={`${styles.titleTextBlock} ${styles.titleSpecialFont}`}>NOS</span>
-                </Parallax>
-                <span className={styles.lastTitleLineWrapper}> {/* Contenedor relativo */}
-                  <Parallax
-                  translateX={['-150%', '0%']}
-                  easing="easeInOutQuad"
-                  shouldAlwaysCompleteAnimation={true}
-                  startScroll={800}
-                  endScroll={1500}>
-                    <span className={styles.titleTextBlock}>
-                      CASA-<br />MOS!
+                <span>
+                    <span>
+                      CASA-
+                      <br/>
+                      <div className={styles.lastTitleLineWrapper}>
+                        MOS!
+                        <div className={styles.dateNumber}>
+                          30<br/>
+                          <span className={styles.dateNumberReg}>08</span><br/>
+                          20<br/>
+                          25
+                        </div>
+                      </div>
                     </span>
-                  </Parallax>
-                  {/* --- 2. Mover la Fecha DENTRO del wrapper --- */}
-                  <Parallax
-                    translateY={['1500px', '0px']}
-                    translateX={['-50px', '-50px']}
-                    shouldAlwaysCompleteAnimation={true}
-                    className={styles.animatedDate}
-                    startScroll={800}
-                    endScroll={1500} 
-                    >
-                    <span className={styles.dateNumberBold}>30</span><br/>
-                    08<br/>
-                    <span className={styles.dateNumberBold}>20</span><br/>
-                    <span className={styles.dateNumberBold}>25</span>
-                  </Parallax>
                 </span>
               </h1>
             </div>
+                <div className={styles.indentedTextBlock}>
+                  <p>
+                  A quien no le va a gustar
+                  celebrar el amor
+                  y una buen jarana.
+                  </p>
+                </div>
           </div>        
-        </HorizontalScrollSection>
       </section>
 
       {/* GIFS 01 */}
