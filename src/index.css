@@ -40,6 +40,8 @@
   --color-text-dark: #000000;      /* Negro/oscuro */
   --color-background-light: #FFFFFF;
   --color-background-dark: #0A0A0A;
+  --color-background-blue: #1c4ae5;
+
 
   /* Espaciados (Sin cambios) */
   --spacing-small: 8px;

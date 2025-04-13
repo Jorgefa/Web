@@ -23,7 +23,12 @@
   width: 100%;
 }
 .standardSectionGifs {
-  margin-bottom: calc(var(--spacing-medium) * 1); /* Mayor espacio entre secciones */
+  margin-bottom: calc(var(--spacing-large) * 1); /* Mayor espacio entre secciones */
+  width: 100%;
+}
+
+.standardSectionMaps {
+  margin-bottom: calc(var(--spacing-large) * 1); /* Mayor espacio entre secciones */
   width: 100%;
 }
 
@@ -84,6 +89,14 @@
   font-family: var(--font-family-display);
   font-weight: normal;
   font-size: 8rem;
+  line-height: 80%;
+  padding-top: 0rem;
+  padding-bottom: .5rem;
+}
+.titleSpecialFontAgosto { /* Modificador para fuente Roashe */
+  font-family: var(--font-family-display);
+  font-weight: normal;
+  font-size: 5.5rem;
   line-height: 80%;
   padding-top: 0rem;
   padding-bottom: .5rem;
@@ -150,6 +163,7 @@
   margin-top: var(--spacing-medium);
 }
 
+
 .centeredTextBlock { /* Para texto centrado */
     max-width: 600px;
     margin: var(--spacing-medium) auto 0 auto;
@@ -163,14 +177,42 @@
   font-family: var(--font-family-text);
   font-weight: var(--font-weight-bold);
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1;
   margin-bottom: var(--spacing-small);
+}
+
+.textArganza {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-light);
+}
+.textPrefiero {
+  font-weight: 700;
+  z-index: 1;
+  color: var(--color-text-light);
+  position: relative;
+}
+.textAutobuses {
+  font-weight: 700;
+  z-index: 1;
+  color: var(--color-text-light);
+  position: relative;
+}
+.textWhite {
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-light);
+  color: var(--color-text-light)
+}
+.buttonMaps {
+  text-align: left;
+  font-weight: 700;
+  z-index: 1;
+  position: relative;
 }
 
 /* Botones/Links de Acción */
 .actionButton {
   display: inline-block;
-  background-color: var(--color-secondary-blue);
+  background-color: var(--color-background-blue);
   color: var(--color-text-light);
   padding: 0.6rem 1.8rem;
   border-radius: 32px;
@@ -189,6 +231,30 @@
   transform: scale(1.03);
   text-decoration: none;
 }
+.actionButtonWhite {
+  display: inline-block;
+  background-color: var(--color-background-light);
+  color: var(--color-text-blue);
+  padding: 0.6rem 1.8rem;
+  border-radius: 32px;
+  font-family: var(--font-family-text);
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  margin-top: var(--spacing-medium);
+  border: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  position: relative;
+  z-index: 1;
+}
+.actionButtonWhite:hover {
+  background-color: #003bb5;
+  transform: scale(1.03);
+  text-decoration: none;
+}
+
 
 
 /* --- Estilos GIFs Superpuestos (Contenido para HorizontalScrollSection) --- */
@@ -211,6 +277,32 @@
 .gifLayer1 { top: 20%; left: 5%; width: 60%; z-index: 2 }
 .gifLayer2 { top: 40%; left: 40%; width: 70%; z-index: 1 }
 .gifLayer3 { top: 80%; left: 15%; width: 60%; z-index: 3; }
+.gifLayer4 { top: 20%; left: 5%; width: 60%; z-index: 2 }
+.gifLayer5 { top: 40%; left: 40%; width: 70%; z-index: 1 }
+.gifLayer6 { top: 80%; left: 15%; width: 60%; z-index: 3; }
+.gifLayer7 {
+  position: absolute; top: 190%; left: 80%; width: 60%; z-index: 3; }
+.gifLayer8 { top: 10%; left: 15%; width: 60%; z-index: 3; }
+.gifLayer9 { top: 30%; left: 50%; width: 60%; z-index: 3; }
+.gifLayer10 {
+  position: absolute; top: 100%; left: -40%; width: 60%; z-index: 3; }
+
+
+/* Fondos */
+.fondoAzul {
+  display: block;
+  position: absolute;
+  top: 290%;
+  left: 0%;
+  width: 100%;
+  z-index: 0 }
+.fondoRojo {
+  display: block;
+  position: absolute;
+  top: 530%;
+  left: 0%;
+  width: 100%;
+  z-index: 0 }
 
 
 /* --- Estilos Cuadrícula Simple de GIFs --- */

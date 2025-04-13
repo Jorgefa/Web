@@ -10,6 +10,8 @@ import HorizontalScrollSection from '../components/HorizontalScrollSection/Horiz
 // --- GIFs --- (Asegúrate de que las rutas son correctas)
 import gifMichelDwightBailando from '../assets/gifs/1.gif';
 import gifDiCaprio from '../assets/gifs/2.gif';
+import gifFriends from '../assets/gifs/4.gif';
+import gifNina from '../assets/gifs/5.gif';
 import gifGato from '../assets/gifs/6.gif';
 import gifAutobus01 from '../assets/gifs/7.gif';
 import gifAutobus02 from '../assets/gifs/8.gif';
@@ -17,6 +19,12 @@ import gifHomer from '../assets/gifs/9.gif';
 import gifVestidoAmarillo from '../assets/gifs/10.gif';
 import gifCris01 from '../assets/gifs/cris01.gif';
 import gifFer01 from '../assets/gifs/fer01.gif';
+import gifMadreMia from '../assets/gifs/GIF_TEXTO_1.gif';
+import gifConductor from '../assets/gifs/GIF_TEXTO_2.gif';
+import fondoAzul from '../assets/fondos/fondo_azul.png';
+import fondoRojo from '../assets/fondos/fondo_rojo.png';
+
+
 
 
 const HomePage: React.FC = () => {
@@ -68,28 +76,28 @@ const HomePage: React.FC = () => {
           <div className={styles.overlappingGifContainer}>
             <Parallax
             className={`${styles.overlappingGifItem} ${styles.gifLayer1}`}
-            translateX={['-0%', '0%']}
+            translateY={['0%', '0%']}
             easing="easeInOutQuad"
             shouldAlwaysCompleteAnimation={true}
-            startScroll={500}
+            startScroll={100}
             endScroll={1000}>
               <img src={gifFer01} alt="es una movida..." />
             </Parallax>
             <Parallax
             className={`${styles.overlappingGifItem} ${styles.gifLayer2}`}
-            translateX={['0%', '0%']}
+            translateY={['0%', '0%']}
             easing="easeInOutQuad"
             shouldAlwaysCompleteAnimation={true}
-            startScroll={500}
+            startScroll={100}
             endScroll={1000}>
               <img src={gifCris01} alt="holiiii" />
             </Parallax>
             <Parallax
             className={`${styles.overlappingGifItem} ${styles.gifLayer3}`}
-            translateX={['-0%', '0%']}
+            translateY={['0%', '0%']}
             easing="easeInOutQuad"
             shouldAlwaysCompleteAnimation={true}
-            startScroll={500}
+            startScroll={100}
             endScroll={1000}>
               <img src={gifMichelDwightBailando} alt="Jaranaaa" />
             </Parallax>
@@ -98,93 +106,91 @@ const HomePage: React.FC = () => {
 
       {/* FECHA Y LUGAR */}
       <section className={`${styles.standardSection} ${styles.sectionAlignLeft}`}>
-        <HorizontalScrollSection heightMultiplier={3}> {/* Duración estándar */}
-          <div style={{display: 'flex', flexDirection: 'column'}}>
-            <Parallax
-              translateX={['-200%', '0%']}
-              easing="easeInOutQuad"
-              shouldAlwaysCompleteAnimation={true}
-              startScroll={5500}
-              endScroll={7000}>
-              <h2 className={styles.sectionTitle}>
+          <div >
+              <h2 className={styles.animatedMainTitle}>
                   30
                   <br />
-                  <span className={styles.titleSpecialFont}>Agosto</span>
+                  <span className={styles.titleSpecialFontAgosto}>Agosto</span>
                   <br />
                   2025
               </h2>
-            </Parallax>
-            <Parallax
-              translateX={['200%', '0%']}
-              easing="easeInOutQuad"
-              shouldAlwaysCompleteAnimation={true}
-              startScroll={6000}
-              endScroll={7500}>
               <div className={styles.indentedTextBlock}>
-                <Parallax
-                translateX={['200%', '0%']}
-                easing="easeInOutQuad"
-                shouldAlwaysCompleteAnimation={true}
-                startScroll={6000}
-                endScroll={7200}>
+                <div>
                   <p>13:30h</p>
-                </Parallax>
-                <Parallax
-                translateX={['200%', '0%']}
-                easing="easeInOutQuad"
-                shouldAlwaysCompleteAnimation={true}
-                startScroll={6300}
-                endScroll={7200}>
                   <p>En La Casona de Pitacum.</p>
-                </Parallax>
-                <Parallax
-                translateX={['200%', '0%']}
-                easing="easeInOutQuad"
-                shouldAlwaysCompleteAnimation={true}
-                startScroll={6400}
-                endScroll={7200}>
-                  <p>C. la Iglesia, 11, 24546 Arganza, León</p>
-                </Parallax>
-                <Parallax
-                translateX={['200%', '0%']}
-                easing="easeInOutQuad"
-                shouldAlwaysCompleteAnimation={true}
-                startScroll={6900}
-                endScroll={7500}>
+                  <span className={styles.textArganza}>
+                    C. la Iglesia, 11, 24546 Arganza, León
+                  </span>
                   <a href="https://maps.app.goo.gl/4ibwkG4HcGDh7dLv5" className={styles.actionButton} target="_blank" rel="noopener noreferrer">
                     LLÉVAME CON MAPS
                   </a>
-                </Parallax>
+                </div>
               </div>
-            </Parallax>
-
           </div>
-        </ HorizontalScrollSection>
       </section>
 
-      {/* Sección Grid de GIFs */}
-      <section className={styles.standardSection}>
-        <div className={styles.simpleGifGrid}>
-          <img src={gifMichelDwightBailando} alt="Michael Scott y Dwight bailando" className={styles.gridGifItem} />
-          <img src={gifDiCaprio} alt="Leonardo DiCaprio brindando" className={styles.gridGifItem} />
-          <img src={gifVestidoAmarillo} alt="Mujer con vestido amarillo posando" className={styles.gridGifItem} />
-          <img src={gifGato} alt="Gato sorprendido" className={styles.gridGifItem} />
+      {/* GIFS 02 */}
+      <section className={styles.standardSectionGifs}>
+        <div className={styles.overlappingGifContainer}>
+          <Parallax
+          className={`${styles.overlappingGifItem} ${styles.gifLayer4}`}
+          translateY={['0%', '0%']}
+          easing="easeInOutQuad"
+          shouldAlwaysCompleteAnimation={true}
+          startScroll={100}
+          endScroll={1000}>
+            <img src={gifFriends} alt="uuuuuuuuuuuuh" />
+          </Parallax>
+          <Parallax
+          className={`${styles.overlappingGifItem} ${styles.gifLayer5}`}
+          translateY={['0%', '0%']}
+          easing="easeInOutQuad"
+          shouldAlwaysCompleteAnimation={true}
+          startScroll={100}
+          endScroll={1000}>
+            <img src={gifGato} alt="holiiii" />
+          </Parallax>
+          <Parallax
+          className={`${styles.overlappingGifItem} ${styles.gifLayer6}`}
+          translateY={['0%', '0%']}
+          easing="easeInOutQuad"
+          shouldAlwaysCompleteAnimation={true}
+          startScroll={100}
+          endScroll={1000}>
+            <img src={gifNina} alt="Jaranaaa" />
+          </Parallax>
+          <Parallax
+          className={styles.gifLayer7}
+          easing="easeInOutQuad"
+          shouldAlwaysCompleteAnimation={true}
+          startScroll={100}
+          endScroll={1000}>
+            <img src={gifMadreMia} alt="Jaranaaa" />
+          </Parallax>
         </div>
       </section>
 
-      {/* Sección "Ser de Luz" */}
-      <section className={styles.standardSection}>
+      <section className={styles.standardSectionMaps}>
         <div className={styles.indentedTextBlock}>
-          <p>Prefiero que todo esto me lo cuente un entrañable ser de luz.</p>
-          <a href="https://www.youtube.com/watch?v=-H2TnrECM9M&ab_channel=ProgramaV%C3%ADaV" className={styles.actionButton} target="_blank" rel="noopener noreferrer">
-            BAJO MI RESPONSABILIDAD
-          </a>
+          <span className={styles.textPrefiero}>
+            Prefiero que todo esto me lo cuente un entrañable ser de luz.
+          </span>
+          <span className={styles.buttonMaps}>
+            <a href="https://www.youtube.com/watch?v=-H2TnrECM9M&ab_channel=ProgramaV%C3%ADaV" className={styles.actionButtonWhite} target="_blank" rel="noopener noreferrer">
+              BAJO MI RESPONSABILIDAD
+            </a>
+          </span>
+        </div>
+        <div  className={styles.fondoAzul}>
+          <img src={fondoAzul} alt="Jaranaaa" />
         </div>
       </section>
 
+      <section className={styles.standardSection}>
+      </section>
       {/* Sección Confirmación Formulario */}
       <section className={styles.standardSection}>
-        <h2 className={styles.sectionTitle}>
+        <h2 className={styles.animatedMainTitle}>
           SÍ,
           <br />
           ESTO
@@ -193,7 +199,7 @@ const HomePage: React.FC = () => {
           <br />
           REAL,
           <br />
-          <span className={styles.titleSpecialFont}>NO ES IA</span>
+          <span className={styles.titleSpecialFontAgosto}>NO ES IA</span>
           <br />
           NI UN
           <br />
@@ -202,7 +208,7 @@ const HomePage: React.FC = () => {
           LACRO.
         </h2>
         <div className={styles.indentedTextBlock}>
-          <p>Y para estar bien preparados, contar las sillas, los platos y sobre todo las cervezas, ¡necesitamos que confirmes!</p>
+          Y para estar bien preparados, contar las sillas, los platos y sobre todo las cervezas, ¡necesitamos que confirmes!
           <Link to="/confirmacion" className={styles.actionButton}>
             YO VOY!
           </Link>
@@ -210,16 +216,49 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Sección Autobuses */}
-      <section className={`${styles.standardSection} ${styles.sectionCentered}`}>
-         <h2 className={styles.sectionTitle}>AUTOBUSES</h2>
-         <div className={styles.simpleGifGrid}>
-           <img src={gifAutobus01} alt="Autobús escolar amarillo" className={styles.gridGifItem} />
-           <img src={gifAutobus02} alt="Autobús de dos pisos" className={styles.gridGifItem} />
-         </div>
-         <div className={styles.centeredTextBlock}>
-           <p>Los autobuses tendrán salida y llegada desde Ponferrada con parada en Plaza Julio Lazúrtegui (zona de abajo) y La Carrasca (zona alta).</p>
-           <p>Confirmaremos horarios y paradas cuando se acerque la fecha.</p>
-         </div>
+     <section className={styles.standardSection}>
+        <div className={styles.overlappingGifContainer}>
+          <Parallax
+          className={`${styles.overlappingGifItem} ${styles.gifLayer8}`}
+          translateY={['0%', '0%']}
+          easing="easeInOutQuad"
+          shouldAlwaysCompleteAnimation={true}
+          startScroll={100}
+          endScroll={1000}>
+            <img src={gifAutobus01} alt="uuuuuuuuuuuuh" />
+          </Parallax>
+          <Parallax
+          className={`${styles.overlappingGifItem} ${styles.gifLayer9}`}
+          translateY={['-0%', '0%']}
+          easing="easeInOutQuad"
+          shouldAlwaysCompleteAnimation={true}
+          startScroll={100}
+          endScroll={1000}>
+            <img src={gifAutobus02} alt="holiiii" />
+          </Parallax>
+          <Parallax
+          className={styles.gifLayer10}
+          translateY={['-0%', '0%']}
+          easing="easeInOutQuad"
+          shouldAlwaysCompleteAnimation={true}
+          startScroll={100}
+          endScroll={1000}>
+            <img src={gifConductor} alt="holiiii" />
+          </Parallax>
+        </div>
+      </section>
+      <section className={styles.standardSection}>
+        <div className={styles.indentedTextBlock}>
+          <span className={styles.textAutobuses}>
+            Los autobuses tendrán salida y llegada desde Ponferrada con parada en Plaza Julio Lazúrtegui (zona de abajo) y La Carrasca (zona alta).
+            <br />
+            <br />
+            Confirmaremos horarios y paradas cuando se acerque la fecha.
+          </span>
+        </div>
+        <div  className={styles.fondoRojo}>
+          <img src={fondoRojo} alt="Jaranaaa" />
+        </div>
       </section>
 
       {/* Sección Dresscode */}
