@@ -1,272 +1,164 @@
 /* src/pages/HomePage.module.css */
 
-/* --- Contenedor Principal y Secciones Base --- */
-.pageContainer {
-  padding: var(--spacing-medium2);
+/* --- Contenedor General y Layout Base --- */
+.pageWrapper {
   width: 100%;
-  max-width: 100vw; /* Evita desbordamiento horizontal base */
+  max-width: 100vw;
   background-color: var(--color-background-light);
-  min-height: 100vh;
+  overflow-x: hidden; /* Prevenir scroll horizontal accidental */
+}
+
+.pageHeader {
+  padding: var(--spacing-medium) 0; /* Espaciado vertical */
+  margin-bottom: var(--spacing-large); /* Espacio antes del contenido principal */
+}
+
+.pageContainer {
+  padding: 0 var(--spacing-medium2); /* Padding horizontal */
+  width: 100%;
+  min-height: 100vh; /* Asegura que ocupe al menos la altura de la pantalla */
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
-  
 }
 
-.headerSection {
-  margin-bottom: calc(var(--spacing-large)*1); /* Mayor espacio entre secciones */
+/* --- Estilos Base de Secciones --- */
+/* Clases específicas por sección para mayor claridad */
+.heroSection,
+.locationSection,
+.infoLinkSection,
+.confirmationSection,
+.busInfoSection,
+.dressCodeSection,
+.closingSection,
+.gifSection {
   width: 100%;
+  position: relative; /* Contexto para elementos internos y z-index */
 }
 
-.standardSection {
-  margin-bottom: calc(var(--spacing-medium) * 1); /* Mayor espacio entre secciones */
-  width: 100%;
-}
-.standardSectionGifs {
-  margin-bottom: calc(var(--spacing-large) * 1); /* Mayor espacio entre secciones */
-  width: 100%;
-}
+/* Alineación (Aplicar a la sección si todo su contenido lo requiere) */
+.alignLeft { text-align: left; }
+.alignCenter { text-align: center; }
 
-.standardSectionMaps {
-  margin-bottom: calc(var(--spacing-large) * 1); /* Mayor espacio entre secciones */
-  width: 100%;
-}
+/* --- Tipografía Consolidada --- */
 
-/* Modificadores de Alineación para Secciones */
-.sectionAlignLeft {
-  text-align: left;
-}
-.sectionCentered {
-  text-align: center;
-}
-
-/* --- Estilos de Texto Específicos --- */
-
+/* Nombres en Header */
 .headerNames {
-    font-family: var(--font-family-text);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-secondary-blue);
-    text-align: center;
-    font-size: 1rem;
-    margin-top: var(--spacing-medium);
-    margin-bottom: var(--spacing-medium);
-}
-
-/* --- Título Principal y Fecha Animados --- */
-
-/* 1. Contenedor Wrapper para ambos elementos */
-.titleAndDateWrapper {
-  position: relative; /* Contexto para posicionar la fecha absolutamente */
-  width: 90%;         /* Ancho total del área combinada */
-  max-width: 700px;   /* Ajustar según necesidad */
-  /* La altura será determinada por el contenido (título + espacio para fecha) */
-  /* border: 1px solid orange; */ /* Para depurar */
-  /* Asegurar que el contenido dentro pueda alinearse */
-   display: flex; /* Opcional: usar flex si ayuda a alinear h1 y fecha */
-   align-items: flex-end; /* Alinear items abajo? Ajustar */
-   justify-content: left; /* Centrar contenido? Ajustar */
-}
-
-
-/* Título Principal Animado (H1) */
-.animatedMainTitle {
-  font-family: var(--font-family-text);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary-red);
-  font-size: clamp(4rem, 22vw, 8rem);
-  line-height: 1;
-  text-align: left;
-  margin: 0; /* Sin margen, centrado por el stickyElement */
-  width: auto;
-  flex-shrink: 0; /* Para que no se encoja si usamos flex en el wrapper */
-}
-.animatedMainTitleRajoy {
-  font-family: var(--font-family-text);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary-red);
-  font-size: clamp(4rem, 22vw, 8rem);
-  line-height: 1;
-  text-align: left;
-  margin: 0; /* Sin margen, centrado por el stickyElement */
-  width: auto;
-  flex-shrink: 0;
-  padding-top: 32px;
-}
-.animatedMainTitleBlue {
   font-family: var(--font-family-text);
   font-weight: var(--font-weight-bold);
   color: var(--color-secondary-blue);
-  font-size: clamp(4rem, 22vw, 8rem);
-  padding-top: 90px;
-  line-height: 1;
-  text-align: left;
-  margin: 0; /* Sin margen, centrado por el stickyElement */
-  width: auto;
-  flex-shrink: 0; /* Para que no se encoja si usamos flex en el wrapper */
+  text-align: center;
+  font-size: 1rem;
 }
 
-.titleTextBlock { /* Bloque dentro del H1 animado */
-  display: block;
-}
-.titleSpecialFont { /* Modificador para fuente Roashe */
-  font-family: var(--font-family-display);
-  font-weight: normal;
-  font-size: 8rem;
-  line-height: 80%;
-  padding-top: 0rem;
-  padding-bottom: .5rem;
-}
-.titleSpecialFontCode { /* Modificador para fuente Roashe */
-  font-family: var(--font-family-display);
-  font-weight: normal;
-  font-size: 5rem;
-  line-height: 80%;
-  padding-top: 0rem;
-  padding-bottom: .5rem;
-}
-.titleSpecialFontAgosto { /* Modificador para fuente Roashe */
-  font-family: var(--font-family-display);
-  font-weight: normal;
-  font-size: 5.5rem;
-  line-height: 80%;
-  padding-top: 0rem;
-  padding-bottom: .5rem;
-}
-.titleSpecialFontChimpun { /* Modificador para fuente Roashe */
-  font-family: var(--font-family-display);
-  font-weight: normal;
-  font-size: 4.5rem;
-  line-height: 80%;
-  padding-top: 0rem;
-  padding-bottom: .5rem;
-}
-
-/* 1. Contenedor relativo SOLO para la última línea y la fecha */
-.lastTitleLineWrapper {
-  position: relative; /* Contexto para la fecha absoluta */
-  display: flex; /* Para que envuelva solo "CASA-MOS!" */
-  /* border: 1px dotted green; */
-}
-
-/* 3. Ajustar posicionamiento de la Fecha */
-.animatedDate {
-  position: absolute; /* Absoluto respecto a .lastTitleLineWrapper */
-  /* --- AJUSTAR POSICIÓN RELATIVA A "MOS!" --- */
-  top: 50%; /* Intentar centrar verticalmente con "MOS!" */
-  left: 100%; /* Empezar justo a la derecha del wrapper */
-  transform: translateY(-50%); /* Ajuste fino para centrado vertical */
-  margin-left: 1rem; /* Espacio horizontal entre "MOS!" y la fecha */
-
-  /* --- Estilos de la fecha (sin cambios necesarios probablemente) --- */
-  font-family: var(--font-family-text);
-  font-weight: var(--font-weight-regular);
-  color: var(--color-secondary-blue);
-  font-size: clamp(1rem, 12vw, 1.8rem); /* Hacerla un poco más pequeña? AJUSTAR */
-  line-height: 1; /* Más junta? AJUSTAR */
-  text-align: left; /* Alinear números a la izquierda puede quedar mejor ahora */
-  z-index: 5;
-  /* border: 1px solid cyan; */ /* Depuración */
-}
-
-.dateNumber {
-  font-weight: var(--font-weight-bold);
-  color: var(--color-secondary-blue);
-  padding-left: 3%;
-  align-content: center;
-  font-size: 1rem
-}
-
-.dateNumberReg {
-  font-weight: var(--font-weight-regular);
-  color: var(--color-secondary-blue);
-}
-
-
-/* Títulos de Sección Normales (H2) */
+/* Títulos de Sección Base */
 .sectionTitle {
   font-family: var(--font-family-text);
   font-weight: var(--font-weight-bold);
-  color: var(--color-primary-red);
-  font-size: clamp(2.5rem, 12vw, 4.5rem);
   line-height: 1.1;
-  text-align: inherit; /* Hereda alineación de la sección padre */
+  text-align: inherit; /* Hereda de la sección */
+  margin: 0; /* Resetear margen base de h1/h2 */
+  margin-bottom: var(--spacing-medium); /* Espacio inferior por defecto */
+}
+
+/* Modificadores de Color para Títulos (y potencialmente otros elementos) */
+.colorRed { color: var(--color-primary-red); }
+.colorBlue { color: var(--color-secondary-blue); }
+
+/* Modificadores de Tamaño para Títulos */
+.sizeHero { font-size: clamp(4rem, 22vw, 7rem); } /* Reducido vw */
+.sizeLarge { font-size: clamp(2.8rem, 14vw, 4.5rem); }
+.sizeMedium { font-size: clamp(2rem, 10vw, 3rem); }
+.sizeSmall { font-size: clamp(1.5rem, 8vw, 2.5rem); }
+
+/* Modificador para Fuente Display (Roashe) */
+.fontDisplay {
+  font-family: var(--font-family-display);
+  font-weight: normal; /* Roashe no necesita bold */
+  line-height: 0.85; /* Ajustado para Roashe */
+  display: inline-block; /* Evita problemas de espaciado */
+}
+
+/* Modificadores de Tamaño para Fuente Display (Ajustar según diseño) */
+.fontDisplayLarge { font-size: 1.3em; } /* Relativo al tamaño del .sectionTitle padre */
+.fontDisplayMedium { font-size: 1.1em; }
+.fontDisplaySmall { font-size: 0.9em; }
+.fontDisplayXSmall { font-size: 0.8em; }
+
+/* Bloque de Título (para control de línea si es necesario) */
+.titleBlock { display: block; }
+
+/* --- Hero: Contenedor Título + Fecha --- */
+.heroTitleDateContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   margin-bottom: var(--spacing-medium);
 }
-.textChimpunQueTan {
-  font-family: var(--font-family-text);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary-red);
-  font-size: clamp(2.5rem, 10vw, 4.5rem);
-  line-height: 1.1;
-  text-align: inherit; /* Hereda alineación de la sección padre */
-  margin-bottom: var(--spacing-medium);
-}
-/* Reutiliza .titleSpecialFont si necesitas Roashe en H2 */
 
-
-/* Bloques de Texto */
-.indentedTextBlock { /* Para texto con margen izquierdo */
-  text-align: left;
-  padding-left: 33%; /* Ajustar indentación */
-  margin-top: var(--spacing-medium);
-}
-
-
-.centeredTextBlock { /* Para texto centrado */
-    max-width: 600px;
-    margin: var(--spacing-medium) auto 0 auto;
-    text-align: center;
-    color: var(--color-text-dark);
-}
-
-/* Estilos comunes para párrafos dentro de bloques de texto */
-.indentedTextBlock p,
-.centeredTextBlock p {
-  font-family: var(--font-family-text);
-  font-weight: var(--font-weight-bold);
-  font-size: 1rem;
+/* --- Hero: Bloque Fecha --- */
+.dateTextBlock {
+  display: flex;
+  flex-direction: horizontal;
   line-height: 1;
+  align-items: center;
+}
+.dateBlock {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.dateNumber, .dateNumberReg {
+  font-family: var(--font-family-text);
+  color: var(--color-secondary-blue);
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  text-align: left;
+}
+.dateNumber { font-weight: var(--font-weight-bold); }
+.dateNumberReg { font-weight: var(--font-weight-regular); }
+
+/* --- Texto de Contenido --- */
+.contentText {
+  font-family: var(--font-family-text);
+  font-size: 1rem;
+  line-height: 1.4; /* Mejor legibilidad */
+  position: relative; /* Para asegurar apilamiento sobre fondos */
+  z-index: 1;
+}
+
+/* Modificadores de Texto */
+.indented {
+  padding-left: 35%; /* Mantenido en rem */
+  text-align: left; /* Asegurar alineación */
+}
+.centered {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.fontWeightBold { font-weight: var(--font-weight-bold); }
+.fontWeightLight { font-weight: var(--font-weight-light); }
+.textColorLight { color: var(--color-text-light); }
+.textColorDark { color: var(--color-text-dark); }
+.textColorBlue { color: var(--color-secondary-blue); }
+
+/* Texto específico (si necesita más que modificadores) */
+.addressText {
+  display: block;
   margin-bottom: var(--spacing-small);
 }
 
-.textArganza {
-  font-family: var(--font-family-text);
-  font-weight: var(--font-weight-light);
-}
-.textPrefiero {
-  font-weight: 700;
-  z-index: 1;
-  color: var(--color-text-light);
-  position: relative;
-}
-.textAutobuses {
-  font-weight: 700;
-  z-index: 1;
-  color: var(--color-text-light);
-  position: relative;
-}
-.textFeelFree {
-  font-weight: 700;
-  z-index: 1;
-  position: relative;
-}
-.textWhite {
-  font-family: var(--font-family-text);
-  font-weight: var(--font-weight-light);
-  color: var(--color-text-light)
-}
-.buttonMaps {
-  text-align: left;
-  font-weight: 700;
-  z-index: 1;
-  position: relative;
+/* Wrapper para botones si se necesita espaciado especial */
+.buttonWrapper {
+  margin-top: var(--spacing-medium);
 }
 
-/* Botones/Links de Acción */
-.actionButton {
+
+/* --- Botones --- */
+.button {
   display: inline-block;
-  background-color: var(--color-background-blue);
-  color: var(--color-text-light);
   padding: 0.6rem 1.8rem;
   border-radius: 32px;
   font-family: var(--font-family-text);
@@ -275,133 +167,181 @@
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  margin-top: var(--spacing-medium);
   border: none;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  margin-top: var(--spacing-medium); /* Espacio superior por defecto */
+  position: relative; /* Para apilamiento */
+  z-index: 1;
 }
-.actionButton:hover {
-  background-color: #003bb5;
+.button:hover {
   transform: scale(1.03);
   text-decoration: none;
 }
-.actionButtonWhite {
-  display: inline-block;
+
+/* Botón Primario (Fondo Azul) */
+.buttonPrimary {
+  background-color: var(--color-secondary-blue);
+  color: var(--color-text-light);
+}
+.buttonPrimary:hover {
+  background-color: #003bb5; /* Azul más oscuro */
+}
+
+/* Botón Secundario (Fondo Blanco) */
+.buttonSecondary {
   background-color: var(--color-background-light);
-  color: var(--color-text-blue);
-  padding: 0.6rem 1.8rem;
-  border-radius: 32px;
-  font-family: var(--font-family-text);
-  font-weight: bold;
-  font-size: 0.9rem;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  margin-top: var(--spacing-medium);
-  border: none;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  position: relative;
-  z-index: 1;
+  color: var(--color-secondary-blue);
 }
-.actionButtonWhite:hover {
-  background-color: #003bb5;
-  transform: scale(1.03);
-  text-decoration: none;
+.buttonSecondary:hover {
+  background-color: #f0f0f0; /* Gris claro */
 }
 
 
-
-/* --- Estilos GIFs Superpuestos (Contenido para HorizontalScrollSection) --- */
-.overlappingGifContainer {
+/* --- GIFs Collage --- */
+.gifSection {
+}
+.gifCollageContainer {
   position: relative;
   width: 90%;
   max-width: 450px;
-  height: 400px;   /* AJUSTAR ALTURA */
-  margin: 0; /* Centrado por stickyElement */
+  min-height: 450px; /* Ajusta según el contenido visual */
+  margin: 0 auto; /* Centrado */
 }
-.overlappingGifItem {
+.gifCollageContainer2 {
+  position: relative;
+  width: 90%;
+  max-width: 450px;
+  min-height: 150px; /* Ajusta según el contenido visual */
+  margin: 0 auto; /* Centrado */
+}
+.gifCollageContainer3 {
+  position: relative;
+  width: 90%;
+  max-width: 450px;
+  min-height: 150px; /* Ajusta según el contenido visual */
+  margin: 0 auto; /* Centrado */
+}
+.gifCollageContainer4 {
+  position: relative;
+  width: 90%;
+  max-width: 450px;
+  min-height: 350px; /* Ajusta según el contenido visual */
+  margin: 0 auto; /* Centrado */
+}
+.gifCollageItem {
   display: block;
   position: absolute;
   overflow: hidden;
-  width: 65%; /* AJUSTAR TAMAÑO BASE GIF */
   height: auto;
-  border-radius: 32px;
+  border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* Width, top, left, z-index definidos por gifLayerX */
 }
-/* Posicionamiento/Tamaño FINAL de cada capa - AJUSTAR */
-.gifLayer1 { top: 20%; left: 5%; width: 60%; z-index: 2 }
-.gifLayer2 { top: 40%; left: 40%; width: 70%; z-index: 1 }
-.gifLayer3 { top: 80%; left: 15%; width: 60%; z-index: 3; }
-.gifLayer4 { top: 15%; left: 5%; width: 60%; z-index: 2 }
-.gifLayer5 { top: 50%; left: 40%; width: 70%; z-index: 1 }
-.gifLayer6 { top: 80%; left: 15%; width: 60%; z-index: 3; }
-.gifLayer7 {
-  position: absolute; top: 190%; left: 80%; width: 60%; z-index: 3; }
-.gifLayer8 { top: 10%; left: 15%; width: 60%; z-index: 3; }
-.gifLayer9 { top: 30%; left: 50%; width: 60%; z-index: 3; }
-.gifLayer10 {
-  position: absolute; top: 100%; left: -40%; width: 60%; z-index: 3; }
-.gifLayer11 { top: 10%; left: 50%; width: 60%; z-index: 3; }
-.gifLayer12 { top: 50%; left: 50%; width: 60%; z-index: 3; }
-.gifLayer13 {  aspect-ratio: 1.3 / 1; top: 30%; left: 00%; width: 60%; z-index: 3;}
-.gifFooter {
-  position: absolute; top: 0%; left: 25%; width: 50%; z-index: 3;}
+.gifCollageItem img { /* Asegura que la imagen llene el item */
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* O contain, según prefieras */
+}
 
-
-
-/* Fondos */
-.fondoAzul {
+.gifCollageItemNoBack {
   display: block;
   position: absolute;
-  top: 290%;
-  left: 0%;
-  width: 100%;
-  z-index: 0 }
-.fondoRojo {
-  display: block;
-  position: absolute;
-  top: 530%;
-  left: 0%;
-  width: 100%;
-  z-index: 0 }
-
-
-
-/* --- Estilos Cuadrícula Simple de GIFs --- */
-.simpleGifGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Columnas auto-ajustables */
-  gap: var(--spacing-medium);
-  max-width: 500px;
-  margin: var(--spacing-medium) auto; /* Centrar */
-}
-.gridGifItem {
-  width: 100%;
+  overflow: hidden;
   height: auto;
-  display: block;
-  border-radius: 4px;
+  /* Width, top, left, z-index definidos por gifLayerX */
 }
+
+/* Capas de GIFs (Revisar posicionamiento en varios dispositivos) */
+.gifLayer1 { top: 5%; left: 5%; width: 60%; z-index: 2; }
+.gifLayer2 { top: 30%; left: 40%; width: 70%; z-index: 1; }
+.gifLayer3 { top: 60%; left: 15%; width: 60%; z-index: 3; }
+.gifLayer4 { top: 10%; left: 45%; width: 60%; z-index: 1; }
+.gifLayer5 { top: 60%; left: 0%; width: 70%; z-index: 2; }
+.gifLayer6 { top: 110%; left: 50%; width: 40%; z-index: 3; }
+.gifLayer7 { top: 80%; left: 60%; width: 50%; z-index: 4; } /* GIF Texto 'Madre Mia' */
+.gifLayer8 { top: 25%; left: 5%; width: 60%; z-index: 2; }
+.gifLayer9 { top: 60%; left: 50%; width: 50%; z-index: 3; }
+.gifLayer10 { top: 40%; left: -30%; width: 50%; z-index: 4; } /* GIF Conductor */
+.gifLayer11 { top: 10%; left: 50%; width: 60%; z-index: 2; }
+.gifLayer12 { top: 60%; left: 45%; width: 60%; z-index: 3; }
+.gifLayer13 { top: 35%; left: 0%; width: 60%; z-index: 4; aspect-ratio: 1.3 / 1; }
+
+
+/* --- Secciones con Fondo --- */
+.sectionWithBlueBackground,
+.sectionWithRedBackground {
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 0; /* Detrás del contenido */
+}
+
+.sectionWithBlueBackground {
+  background-size: cover;
+  background-image: url('../assets/fondos/fondo_azul.png');
+  background-size: 120%;
+  padding: calc(1.5 * var(--spacing-large)) calc(1 * var(--spacing-medium2)); /* Padding interno */
+  margin-left: calc(1 * var(--spacing-medium2)); /* Extender a los bordes */
+  margin-right: calc(-1 * var(--spacing-medium2)); /* Extender a los bordes */
+}
+.sectionWithRedBackground {
+  background-size: cover;
+  background-image: url('../assets/fondos/fondo_rojo.png');
+  background-size: 100%;
+  width: 100vw;
+  padding: calc(1.5 * var(--spacing-large)) calc(1 * var(--spacing-medium2)); /* Padding interno */
+  padding-top: calc(1.5 * var(--spacing-large));
+  padding-bottom: calc(1.5 * var(--spacing-large));
+  background-position: bottom center;
+  margin-left: calc(-1 * var(--spacing-medium2)); /* Extender a los bordes */
+  margin-right: calc(-1 * var(--spacing-medium2)); /* Extender a los bordes */
+}
+/* Asegurar que el texto indentado dentro de estas secciones mantenga su padding */
+.sectionWithBlueBackground .indented,
+.sectionWithRedBackground .indented {
+    padding-left: 3.5rem; /* O el valor que necesites */
+}
+
 
 /* --- Footer --- */
 .pageFooter {
   position: relative;
-  overflow: hidden;
+  margin-top: var(--spacing-large); /* Espacio antes del footer */
 }
 
-.footerDiv {
+.footerBackground {
   position: relative;
-  min-height: 200px;             /* puedes aumentarlo si quieres más espacio */
-  padding: 0;
-  color: white;
-
+  min-height: 250px;
+  color: var(--color-text-light);
   display: flex;
-  align-items: flex-end;         /* BAJA el contenido al fondo */
-  justify-content: center;       /* centra horizontalmente */
-
-  background-image: url('/src/assets/fondos/fondo_azul_cierre.png');
-  background-size: cover;       /* cubre todo el ancho y alto */
+  align-items: flex-end;
+  justify-content: center;
+  background-image: url('../assets/fondos/fondo_azul_cierre.png'); /* Verifica ruta */
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom center;
+  overflow: hidden; /* Evita que el GIF sobresalga visualmente */
 }
 .footerText {
-  padding-bottom: 1rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+.footerText p {
+    font-weight: var(--font-weight-bold);
+    font-size: 1.1rem;
+    margin: 0; /* Resetear margen del párrafo */
+}
+/* El GIF del footer ahora usa gifCollageItem pero con clase específica */
+.footerGif {
+  /* hereda position:absolute y display:block de .gifCollageItem */
+  bottom: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  max-width: 180px; /* Ajustado */
+  z-index: 1; /* Debajo del texto del footer */
+  border-radius: 16px; /* Sin bordes redondeados para este? */
+  box-shadow: none; /* Sin sombra para este? */
 }
