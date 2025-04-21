@@ -5,12 +5,17 @@ import styles from './ConfirmationPage.module.css'; // Crearemos estilos básico
 
 const ConfirmationPage: React.FC = () => {
   return (
-    <div className={styles.pageContainer}>
-      <h1 className={styles.pageTitle}>Confirmación de Asistencia</h1>
-      <p className={styles.pageSubtitle}>
-        ¡Qué ganas de verte! Por favor, completa los datos de los asistentes.
-      </p>
-      <ConfirmationForm />
+    <div className={styles.pageWrapper}> {/* Renombrado para claridad */}
+      {/* ----- Header ----- */}
+      <header className={styles.pageHeader}>
+        <p className={styles.headerNames}>cris & jorge</p>
+      </header>
+      <div className={styles.pageContainer}>
+        <p className={`${styles.pageSubtitle} ${styles.indented}`}>
+          ¡Qué ganas de verte! Por favor, completa los datos de los asistentes.
+        </p>
+        <ConfirmationForm />
+      </div>
     </div>
   );
 };

@@ -150,7 +150,7 @@ const HomePage: React.FC = () => {
           </h2>
           <div className={`${styles.contentText} ${styles.indented} ${styles.fontWeightBold}`}>
             <p>Y para estar bien preparados, contar las sillas, los platos y sobre todo las cervezas, ¡necesitamos que confirmes!</p>
-            <Link to="/confirmacion" className={`${styles.button} ${styles.buttonPrimary}`}>
+            <Link to="/confirmacion" className={`${styles.button}  ${styles.buttonSpecial}`}>
               YO VOY!
             </Link>
           </div>

@@ -62,14 +62,20 @@ const GuestPage: React.FC = () => {
 
   // 5. Renderizado de la página personalizada
   return (
-    <div className={styles.guestPageContainer}>
-      {/* Podrías añadir un saludo genérico o usar el displayName */}
-      <h1 className={styles.holaMessage}>Hola</h1>
-      <h1 className={styles.guestName}>{invitationData.displayName}!</h1>
-      <p className={styles.guestMessage}>{invitationData.customMessage}</p>
-      <Link to="/" className={styles.actionButton}>
-        {invitationData.buttonText}
-      </Link>
+    <div className={styles.pageWrapper}> {/* Renombrado para claridad */}
+      {/* ----- Header ----- */}
+      <header className={styles.pageHeader}>
+        <p className={styles.headerNames}>cris & jorge</p>
+      </header>
+      <div className={styles.guestPageContainer}>
+        {/* Podrías añadir un saludo genérico o usar el displayName */}
+        <h1 className={styles.holaMessage}>Hola</h1>
+        <h1 className={styles.guestName}>{invitationData.displayName}!</h1>
+        <p className={styles.guestMessage}>{invitationData.customMessage}</p>
+        <Link to="/" className={styles.actionButton}>
+          {invitationData.buttonText}
+        </Link>
+      </div>
     </div>
   );
 };

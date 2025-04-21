@@ -178,6 +178,13 @@
   text-decoration: none;
 }
 
+.buttonSpecial {
+  background-color: var(--color-secondary-blue);
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  padding: 0.6rem 3rem;
+}
+
 /* Botón Primario (Fondo Azul) */
 .buttonPrimary {
   background-color: var(--color-secondary-blue);
@@ -256,9 +263,9 @@
 .gifLayer1 { top: 5%; left: 5%; width: 60%; z-index: 2; }
 .gifLayer2 { top: 30%; left: 40%; width: 70%; z-index: 1; }
 .gifLayer3 { top: 60%; left: 15%; width: 60%; z-index: 3; }
-.gifLayer4 { top: 10%; left: 45%; width: 60%; z-index: 1; }
-.gifLayer5 { top: 60%; left: 0%; width: 70%; z-index: 2; }
-.gifLayer6 { top: 110%; left: 50%; width: 40%; z-index: 3; }
+.gifLayer4 { top: 15%; left: 45%; width: 60%; z-index: 1; }
+.gifLayer5 { top: 70%; left: 0%; width: 70%; z-index: 2; }
+.gifLayer6 { top: 120%; left: 50%; width: 40%; z-index: 3; }
 .gifLayer7 { top: 80%; left: 60%; width: 50%; z-index: 4; } /* GIF Texto 'Madre Mia' */
 .gifLayer8 { top: 25%; left: 5%; width: 60%; z-index: 2; }
 .gifLayer9 { top: 60%; left: 50%; width: 50%; z-index: 3; }
