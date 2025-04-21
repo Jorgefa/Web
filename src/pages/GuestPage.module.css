@@ -1,20 +1,29 @@
 /* src/pages/GuestPage.module.css */
 .guestPageContainer {
+    padding: var(--spacing-medium2);
+    width: 100%;
+    max-width: 100vw; /* Evita desbordamiento horizontal base */
+    background-color: var(--color-background-light);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-    background-color: var(--color-background-light);
-    padding: var(--spacing-large);
-    color: var(--color-text-dark);
+    overflow-x: hidden;
+  }
+
+  .holaMessage {
+    text-align: left;
+    font-family: var(--font-family-display); /* Roashe */
+    color: var(--color-primary-red); /* Rojo */
+    font-size: clamp(4rem, 22vw, 8rem);
+    margin-bottom: var(--spacing-medium);
   }
   
   .guestName {
-    font-family: var(--font-family-display); /* Roashe */
+    text-align: left;
+    font-family: var(--font-family-text);
+    font-weight: var(--font-weight-bold);
     color: var(--color-primary-red); /* Rojo */
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(4rem, 22vw, 8rem);
     margin-bottom: var(--spacing-medium);
   }
   
@@ -23,28 +32,32 @@
     font-size: 1.1rem;
     line-height: 1.6;
     max-width: 550px;
-    margin-bottom: var(--spacing-large);
+    margin-bottom: var(--spacing-medium);
     color: var(--color-secondary-blue); /* Azul */
+    text-align: left;
+    padding-left: 33%; /* Ajustar indentación */
   }
   
-  .guestButton {
-    /* Reutiliza estilos de .actionButton de HomePage o crea uno similar */
+  .actionButton {
     display: inline-block;
-    background-color: var(--color-primary-red); /* Rojo */
+    background-color: var(--color-background-blue);
     color: var(--color-text-light);
-    padding: 0.8rem 2.5rem;
+    padding: 0.6rem 1.8rem;
     border-radius: 32px;
     font-family: var(--font-family-text);
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     text-decoration: none;
+    text-align: center;
     cursor: pointer;
+    margin-top: var(--spacing-medium);
     border: none;
     transition: transform 0.2s ease, background-color 0.2s ease;
   }
-  .guestButton:hover {
-    background-color: #cc0000; /* Rojo oscuro */
+  .actionButton:hover {
+    background-color: #003bb5;
     transform: scale(1.03);
+    text-decoration: none;
   }
   
   .reminder {

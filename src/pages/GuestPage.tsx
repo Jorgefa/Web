@@ -64,13 +64,12 @@ const GuestPage: React.FC = () => {
   return (
     <div className={styles.guestPageContainer}>
       {/* Podrías añadir un saludo genérico o usar el displayName */}
-      <h1 className={styles.guestName}>¡Hola, {invitationData.displayName}!</h1>
+      <h1 className={styles.holaMessage}>Hola</h1>
+      <h1 className={styles.guestName}>{invitationData.displayName}!</h1>
       <p className={styles.guestMessage}>{invitationData.customMessage}</p>
-      <Link to="/" className={styles.guestButton}>
+      <Link to="/" className={styles.actionButton}>
         {invitationData.buttonText}
       </Link>
-      {/* Opcional: pequeño recordatorio */}
-      <p className={styles.reminder}>Estás viendo una página personalizada. Haz clic en el botón para ver la invitación completa.</p>
     </div>
   );
 };
