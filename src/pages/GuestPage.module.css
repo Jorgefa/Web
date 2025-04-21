@@ -1,0 +1,73 @@
+/* src/pages/GuestPage.module.css */
+.guestPageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    background-color: var(--color-background-light);
+    padding: var(--spacing-large);
+    color: var(--color-text-dark);
+  }
+  
+  .guestName {
+    font-family: var(--font-family-display); /* Roashe */
+    color: var(--color-primary-red); /* Rojo */
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: var(--spacing-medium);
+  }
+  
+  .guestMessage {
+    font-family: var(--font-family-text); /* Poppins */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 550px;
+    margin-bottom: var(--spacing-large);
+    color: var(--color-secondary-blue); /* Azul */
+  }
+  
+  .guestButton {
+    /* Reutiliza estilos de .actionButton de HomePage o crea uno similar */
+    display: inline-block;
+    background-color: var(--color-primary-red); /* Rojo */
+    color: var(--color-text-light);
+    padding: 0.8rem 2.5rem;
+    border-radius: 32px;
+    font-family: var(--font-family-text);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  .guestButton:hover {
+    background-color: #cc0000; /* Rojo oscuro */
+    transform: scale(1.03);
+  }
+  
+  .reminder {
+      margin-top: var(--spacing-large);
+      font-size: 0.8rem;
+      color: #777;
+  }
+  
+  .statusMessage {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: var(--color-secondary-blue);
+  }
+  .statusMessageError {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: var(--color-primary-red);
+    padding: 2rem;
+    text-align: center;
+  }

@@ -8,6 +8,8 @@ import MobileOnlyWrapper from './components/MobileOnlyWrapper/MobileOnlyWrapper'
 import ConfirmationPage from './pages/ConfirmationPage'; // <-- Nueva importación
 import ThankYouPage from './pages/ThankYouPage';     // <-- Nueva importación
 import AdminPage from './pages/AdminPage';
+import GuestPage from './pages/GuestPage'; // <-- Nueva importación
+
 // Importa MarianoPage si la tienes
 // import MarianoPage from './pages/MarianoPage';
 
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
             <HomePage />
           </MobileOnlyWrapper>
         ),
+      },
+      { // --- NUEVA RUTA DINÁMICA ---
+        path: '/invitado/:guestSlug', // El : indica un parámetro dinámico
+        element: <GuestPage />,
       },
       {
         path: '/confirmacion',
