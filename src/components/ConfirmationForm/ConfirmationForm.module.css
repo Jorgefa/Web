@@ -2,6 +2,28 @@
 
 /* ... (Estilos existentes: .form, .guestSection, .guestLegend, etc.) ... */
 
+.guestSection {
+  margin-bottom: var(--spacing-large);
+  padding: var(--spacing-medium);
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-background-light);
+  box-shadow: var(--shadow-small);
+  border: none; /* 👈 Elimina el borde del fieldset */
+}
+
+.guestLegend {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-medium);
+  display: inline-block;
+}
+.legendContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .formRow {
   display: flex;
   gap: var(--spacing-medium);
@@ -17,8 +39,32 @@
   flex-direction: column;
 }
 
-/* ... (Estilos existentes para labels, inputs, errors, etc.) ... */
+/* Quitar bordes y mejorar apariencia de inputs/selects/textareas */
+.formField input,
+.formField select,
+.formField textarea {
+  border: none;
+  border-radius: 0;
+  background-color: var(--color-background-light);
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  font-family: var(--font-family-text);
+  color: var(--color-text-dark);
+  outline: none;
+}
 
+.formField input:focus,
+.formField select:focus,
+.formField textarea:focus {
+}
+
+/* Línea divisoria roja entre campos */
+.fieldDivider {
+  height: 4px;
+  background-color: red;
+  margin: var(--spacing-small) 0 var(--spacing-medium);
+  border-radius: 2px;
+}
 .checkboxGroup {
     margin-bottom: var(--spacing-medium);
 }
@@ -79,5 +125,52 @@
   .addButton,
   .submitButton {
     font-size: 1rem; /* Ajustar tamaño de fuente de botones */
+  }
+
+
+  .removeButton {
+    padding: 0.3rem 0.8rem;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.3rem;
+    background-color: transparent;
+    color: var(--color-primary-red);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+  
+  .removeButton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.1);
+  }
+
+  .button {
+    display: inline-block;
+    padding: 0.6rem 1.8rem;
+    border-radius: 32px;
+    font-family: var(--font-family-text);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    margin-top: var(--spacing-medium); /* Espacio superior por defecto */
+    position: relative; /* Para apilamiento */
+    z-index: 1;
+  }
+  .button:hover {
+    transform: scale(1.03);
+    text-decoration: none;
+  }
+
+  .buttonPrimary {
+    background-color: var(--color-secondary-blue);
+    color: var(--color-text-light);
+  }
+  .buttonPrimary:hover {
+    background-color: #003bb5; /* Azul más oscuro */
   }
 }
