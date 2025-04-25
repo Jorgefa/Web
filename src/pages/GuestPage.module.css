@@ -52,6 +52,7 @@
   
   .guestMessage {
     font-family: var(--font-family-text); /* Poppins */
+    font-weight: var(--font-weight-regular);
     font-size: 1.1rem;
     line-height: 1.6;
     max-width: 550px;
