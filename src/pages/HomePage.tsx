@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 // --- GIFs ---
 import gifMichelDwightBailando from '../assets/gifs/1.gif';
 import gifFriends from '../assets/gifs/4.gif';
-import gifNina from '../assets/gifs/5.gif';
+import gifDica from '../assets/gifs/2.gif';
 import gifGato from '../assets/gifs/6.gif';
 import gifAutobus01 from '../assets/gifs/7.gif';
 import gifAutobus02 from '../assets/gifs/8.gif';
@@ -19,6 +19,7 @@ import gifFer01 from '../assets/gifs/fer01.gif';
 import gifMadreMia from '../assets/gifs/GIF_TEXTO_1.gif';
 import gifConductor from '../assets/gifs/GIF_TEXTO_2.gif';
 import gifTuktuk from '../assets/gifs/tuktuk.gif';
+
 
 const HomePage: React.FC = () => {
 
@@ -50,7 +51,7 @@ const HomePage: React.FC = () => {
                   </div>
               </h1>
             </div>
-            <div className={`${styles.contentText} ${styles.indented} ${styles.fontWeightBold} ${styles.colorBlue}`}>
+            <div className={`${styles.contentTextAquien} ${styles.indented} ${styles.fontWeightBold} ${styles.colorBlue}`}>
               <p>
               A quien no le va a gustar celebrar el amor y una buena jarana.
               </p>
@@ -74,16 +75,16 @@ const HomePage: React.FC = () => {
 
         {/* ----- Location Section ----- */}
         <section className={`${styles.locationSection} ${styles.alignLeft}`}>
-            <h1 className={`${styles.sectionTitle} ${styles.colorRed} ${styles.sizeHero}`}>
+            <h1 className={`${styles.sectionTitle2} ${styles.colorRed} ${styles.sizeHero}`}>
                 30
                 <br />
                 <span className={`${styles.fontDisplay} ${styles.fontDisplayMedium}`}>Agosto</span>
                 <br />
                 2025
             </h1>
-            <div className={`${styles.contentText} ${styles.indented}`}>
+            <div className={`${styles.contentTextLugar} ${styles.indented}`}>
                 <p className={styles.fontWeightBold}>13:30h</p>
-                <p className={styles.fontWeightBold}>En La Casona de Pitacum.</p>
+                <p className={styles.fontWeightBold}>La Casona de Pittacum</p>
                 <span className={`${styles.addressText} ${styles.fontWeightLight}`}>
                   C. la Iglesia, 11, 24546 Arganza, León
                 </span>
@@ -103,7 +104,7 @@ const HomePage: React.FC = () => {
               <img src={gifGato} alt="Cat gif" />
             </Parallax>
             <Parallax className={`${styles.gifCollageItem} ${styles.gifLayer6}`} translateY={['0%', '0%']} easing="easeInOutQuad" shouldAlwaysCompleteAnimation={true} startScroll={100} endScroll={1000}>
-              <img src={gifNina} alt="Nina gif" />
+              <img src={gifDica} alt="Nina gif" />
             </Parallax>
 
           </div>
@@ -112,7 +113,7 @@ const HomePage: React.FC = () => {
         {/* ----- Info Link Section (Rajoy) ----- */}
         <section className={`${styles.infoLinkSection} ${styles.sectionWithBlueBackground}`}>
           {/* El contenedor indented ahora tiene z-index por defecto */}
-          <div className={`${styles.contentText} ${styles.indented}`}>
+          <div className={`${styles.contentText} ${styles.indentedBackgroundBlue}`}>
             <span className={`${styles.fontWeightBold} ${styles.textColorLight}`}>
               Prefiero que todo esto me lo cuente un entrañable ser de luz.
             </span>
@@ -130,7 +131,7 @@ const HomePage: React.FC = () => {
 
         {/* ----- Confirmation Section ----- */}
         <section className={styles.confirmationSection}>
-          <h2 className={`${styles.sectionTitle} ${styles.colorRed} ${styles.sizeHero}`}>
+          <h2 className={`${styles.sectionTitle2} ${styles.colorRed} ${styles.sizeHero}`}>
             SÍ,
             <br />
             ESTO
@@ -146,10 +147,10 @@ const HomePage: React.FC = () => {
             <br />
             SIMU-
             <br />
-            LACRO.
+            LACRO
           </h2>
-          <div className={`${styles.contentText} ${styles.indented} ${styles.fontWeightBold}`}>
-            <p>Y para estar bien preparados, contar las sillas, los platos y sobre todo las cervezas, ¡necesitamos que confirmes!</p>
+          <div className={`${styles.contentTextCerve} ${styles.indented} ${styles.fontWeightBold}`}>
+            <p>Y para estar bien preparados y calcular bien las cervezas, ¡necesitamos que confirmes!</p>
             <Link to="/confirmacion" className={`${styles.button}  ${styles.buttonSpecial}`}>
               YO VOY!
             </Link>
@@ -170,12 +171,12 @@ const HomePage: React.FC = () => {
 
         {/* ----- Bus Info Section ----- */}
         <section className={`${styles.busInfoSection} ${styles.sectionWithRedBackground}`}>
-          <div className={`${styles.contentText} ${styles.indented}`}>
+          <div className={`${styles.contentText} ${styles.indentedBackgroundRed}`}>
             <span className={`${styles.fontWeightBold} ${styles.textColorLight}`}>
-              Los autobuses tendrán salida y llegada desde Ponferrada con parada en Plaza Julio Lazúrtegui (zona de abajo) y La Carrasca (zona alta).
+              Los autobuses tendrán salida y llegada desde Ponferrada con varias paradas.
               <br />
               <br />
-              Confirmaremos horarios y paradas cuando se acerque la fecha.
+              Actualizaremos cuando se acerque la fecha.
             </span>
           </div>
             <Parallax className={`${styles.gifCollageItemNoBack} ${styles.gifLayer10}`} translateY={['-0%', '0%']} easing="easeInOutQuad" shouldAlwaysCompleteAnimation={true} startScroll={100} endScroll={1000}>
@@ -185,13 +186,13 @@ const HomePage: React.FC = () => {
 
         {/* ----- Dress Code Section ----- */}
         <section className={styles.dressCodeSection}>
-          <h2 className={`${styles.sectionTitle} ${styles.colorBlue} ${styles.sizeHero}`}>
+          <h2 className={`${styles.sectionTitle3} ${styles.colorBlue} ${styles.sizeHero}`}>
             DRESS
             <br />
             {/* Aplicar fuente display */}
             <span className={`${styles.fontDisplay} ${styles.fontDisplaySmall}`}>CODE:</span>
           </h2>
-          <div className={`${styles.contentText} ${styles.indented} ${styles.fontWeightBold}`}>
+          <div className={`${styles.contentTextDress} ${styles.indented} ${styles.fontWeightBold}`}>
             <span>
               Feel free and ven como quieras pero pilla la chaqueta por si refresca.
             </span>
