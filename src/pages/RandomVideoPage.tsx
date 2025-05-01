@@ -1,6 +1,6 @@
 // src/pages/RandomVideoPage.tsx
 import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './RandomVideoPage.module.css';
 
 // --- LISTA DE VIDEOS --- (Reemplaza con tus IDs reales)
