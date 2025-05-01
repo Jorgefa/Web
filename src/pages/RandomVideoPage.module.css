@@ -1,4 +1,11 @@
 /* src/pages/RandomVideoPage.module.css */
+.pageWrapper {
+  width: 100%;
+  max-width: 100vw;
+  background-color: var(--color-background-light);
+  overflow-x: hidden; /* Prevenir scroll horizontal accidental */
+}
+
 .pageContainer {
     display: flex;
     flex-direction: column;
@@ -7,6 +14,19 @@
     min-height: 100vh;
     padding: var(--spacing-medium);
     color: var(--color-text-light); /* Texto claro */
+  }
+
+  .pageHeader {
+    padding: var(--spacing-medium) 0; /* Espaciado vertical */
+    margin-bottom: var(--spacing-medium);
+  }
+  
+  .headerNames {
+    font-family: var(--font-family-text);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-secondary-blue);
+    text-align: center;
+    font-size: 1rem;
   }
   
   .title {

@@ -62,13 +62,13 @@ const HomePage: React.FC = () => {
         <section className={styles.gifSection}>
             <div className={styles.gifCollageContainer}>
               <Parallax className={`${styles.gifCollageItem} ${styles.gifLayer1}`} translateY={['0%', '0%']} easing="easeInOutQuad" shouldAlwaysCompleteAnimation={true} startScroll={100} endScroll={1000}>
-                <img src={gifFer01} alt="Fernando gif" />
+                <img src={gifFer01} alt="Fer gif" />
               </Parallax>
               <Parallax className={`${styles.gifCollageItem} ${styles.gifLayer2}`} translateY={['0%', '0%']} easing="easeInOutQuad" shouldAlwaysCompleteAnimation={true} startScroll={100} endScroll={1000}>
                 <img src={gifCris01} alt="Cristina gif" />
               </Parallax>
               <Parallax className={`${styles.gifCollageItem} ${styles.gifLayer3}`} translateY={['0%', '0%']} easing="easeInOutQuad" shouldAlwaysCompleteAnimation={true} startScroll={100} endScroll={1000}>
-                <img src={gifMichelDwightBailando} alt="Michael Scott and Dwight Schrute dancing gif" />
+                <img src={gifMichelDwightBailando} alt="Michael y Dwight gif" />
               </Parallax>
             </div>
         </section>
@@ -98,13 +98,13 @@ const HomePage: React.FC = () => {
         <section className={styles.gifSection}>
           <div className={styles.gifCollageContainer2}>
             <Parallax className={`${styles.gifCollageItem} ${styles.gifLayer4}`} translateY={['0%', '0%']} easing="easeInOutQuad" shouldAlwaysCompleteAnimation={true} startScroll={100} endScroll={1000}>
-              <img src={gifFriends} alt="Friends characters gif" />
+              <img src={gifFriends} alt="Friends gif" />
             </Parallax>
             <Parallax className={`${styles.gifCollageItem} ${styles.gifLayer5}`} translateY={['0%', '0%']} easing="easeInOutQuad" shouldAlwaysCompleteAnimation={true} startScroll={100} endScroll={1000}>
-              <img src={gifGato} alt="Cat gif" />
+              <img src={gifGato} alt="Gato gif" />
             </Parallax>
             <Parallax className={`${styles.gifCollageItem} ${styles.gifLayer6}`} translateY={['0%', '0%']} easing="easeInOutQuad" shouldAlwaysCompleteAnimation={true} startScroll={100} endScroll={1000}>
-              <img src={gifDica} alt="Nina gif" />
+              <img src={gifDica} alt="Dica gif" />
             </Parallax>
 
           </div>

@@ -9,7 +9,6 @@
 
 .pageHeader {
   padding: var(--spacing-medium) 0; /* Espaciado vertical */
-  margin-bottom: var(--spacing-medium);
 }
 
 .headerNames {
@@ -27,7 +26,7 @@
     min-height: 100vh;
     text-align: center;
     background-color: var(--color-background-light);
-    padding: var(--spacing-large);
+    padding: 64px;
   }
 
   /* Títulos de Sección Base */
@@ -102,4 +101,12 @@
 }
 .buttonPrimary:hover {
   background-color: #003bb5; /* Azul más oscuro */
+}
+
+.thankYouImage {
+  max-width: 200px; /* Controla el tamaño máximo de la imagen */
+  width: 100%;       /* O un porcentaje del ancho disponible */
+  height: auto;     /* Mantiene la proporción */
+  margin-bottom: var(--spacing-medium); /* Espacio debajo de la imagen */
+  margin-bottom: var(--spacing-medium); /* Espacio debajo de la imagen */
 }

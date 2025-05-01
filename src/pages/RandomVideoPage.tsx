@@ -1,13 +1,11 @@
 // src/pages/RandomVideoPage.tsx
 import React, { useState, useEffect, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom'; // Para el botón de volver
+import { useNavigate, Link } from 'react-router-dom';
 import styles from './RandomVideoPage.module.css';
 
 // --- LISTA DE VIDEOS --- (Reemplaza con tus IDs reales)
 const YOUTUBE_VIDEO_IDS = [
   '-H2TnrECM9M', // Rajoy
-  'dQw4w9WgXcQ', // Rick Astley
-  'ZZ5LpwO-An4', // Heman
   'sepQ1zPB-QE', //Palmera
   'niRERC1k9yM', //PUUUMMMM
   'AH4Vx5zz7Go', //Dale Zelda
@@ -15,17 +13,12 @@ const YOUTUBE_VIDEO_IDS = [
   'QNTZbJSQVis', //Parda
   'shtchHDxMH8', //Ninos
   'bRL_t0JBMlY', //Abuelo
-  'Ngfw_qg6UUU', //ContigoNoBicho
   'saUPLHtyNhI', //PacoUmbral
   'ryxUeWEcUqE', //TheOffice
-
-
-  // Añade más IDs aquí...
+  'CEbVsBNAvGg', //Alcohol
 ];
-// --- FIN LISTA ---
 
 const RandomVideoPage: React.FC = () => {
-  const navigate = useNavigate();
   const [currentVideoId, setCurrentVideoId] = useState<string | null>(null);
 
   // Función para seleccionar un video random (asegurándose que no sea el mismo)
@@ -56,42 +49,39 @@ const RandomVideoPage: React.FC = () => {
   useEffect(() => {
     selectRandomVideo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // El [] asegura que solo se ejecute una vez al montar (pero da warning por selectRandomVideo)
-  // Nota: El warning de exhaustive-deps es porque selectRandomVideo usa currentVideoId.
-  // En este caso específico del montaje inicial, está bien ignorarlo o refactorizar
-  // selectRandomVideo para que no dependa del state si se llama solo al inicio.
-  // Para simplificar, lo dejamos así por ahora.
-
-  const handleGoBack = () => {
-    navigate(-1); // Navega a la página anterior en el historial
-  };
+  }, []);
 
   return (
-    <div className={styles.pageContainer}>
-      {currentVideoId ? (
-        <div className={styles.videoWrapper}>
-          {/* Iframe responsivo para embeber YouTube */}
-          <iframe
-            className={styles.videoIframe}
-            src={`https://www.youtube.com/embed/${currentVideoId}?autoplay=1&rel=0`} // Autoplay y sin relacionados
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
-        </div>
-      ) : (
-        // Mensaje mientras se selecciona el primer video o si hay error
-        <p className={styles.loadingMessage}>Cargando video...</p>
-      )}
+    <div className={styles.pageWrapper}>
+      <header className={styles.pageHeader}>
+        <p className={styles.headerNames}>cris & jorge</p>
+      </header>
+      <div className={styles.pageContainer}>
+        {currentVideoId ? (
+          <div className={styles.videoWrapper}>
+            {/* Iframe responsivo para embeber YouTube */}
+            <iframe
+              className={styles.videoIframe}
+              src={`https://www.youtube.com/embed/${currentVideoId}?autoplay=1&rel=0`} // Autoplay y sin relacionados
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        ) : (
+          // Mensaje mientras se selecciona el primer video o si hay error
+          <p className={styles.loadingMessage}>Cargando video...</p>
+        )}
 
-      <div className={styles.buttonContainer}>
-        <button onClick={selectRandomVideo} className={`${styles.button} ${styles.buttonPrimary}`}>
-          Otro Video Random
-        </button>
-        <button onClick={handleGoBack} className={`${styles.button} ${styles.buttonPrimary}`}>
-          Volver
-        </button>
+        <div className={styles.buttonContainer}>
+          <button onClick={selectRandomVideo} className={`${styles.button} ${styles.buttonPrimary}`}>
+            Otro Video Random
+          </button>
+          <Link to="/" className={`${styles.button} ${styles.buttonPrimary}`}>
+            Volver
+          </Link>
+        </div>
       </div>
     </div>
   );
