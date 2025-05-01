@@ -2,9 +2,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'; // Outlet puede que no se necesite aquí directamente
 import MainLayout from './layouts/MainLayout';
-
 import HomePage from './pages/HomePage';
-import MobileOnlyWrapper from './components/MobileOnlyWrapper/MobileOnlyWrapper';
 import ConfirmationPage from './pages/ConfirmationPage'; // <-- Nueva importación
 import ThankYouPage from './pages/ThankYouPage';     // <-- Nueva importación
 import AdminPage from './pages/AdminPage';
@@ -25,9 +23,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: (
-          <MobileOnlyWrapper> {/* MobileOnlyWrapper envuelve solo HomePage */}
             <HomePage />
-          </MobileOnlyWrapper>
         ),
       },
       { // --- NUEVA RUTA DINÁMICA ---
