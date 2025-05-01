@@ -8,7 +8,9 @@ import MobileOnlyWrapper from './components/MobileOnlyWrapper/MobileOnlyWrapper'
 import ConfirmationPage from './pages/ConfirmationPage'; // <-- Nueva importación
 import ThankYouPage from './pages/ThankYouPage';     // <-- Nueva importación
 import AdminPage from './pages/AdminPage';
-import GuestPage from './pages/GuestPage'; // <-- Nueva importación
+import GuestPage from './pages/GuestPage';
+import RandomVideoPage from './pages/RandomVideoPage';
+
 
 // Importa MarianoPage si la tienes
 // import MarianoPage from './pages/MarianoPage';
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: '/adminNovios',
         element: <AdminPage />,
+      },
+      { // --- NUEVA RUTA ---
+        path: '/ramdon', // O la ruta que prefieras
+        element: <RandomVideoPage />,
       },
       // ... otras rutas hijas ...
     ],

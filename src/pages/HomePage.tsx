@@ -115,13 +115,13 @@ const HomePage: React.FC = () => {
           {/* El contenedor indented ahora tiene z-index por defecto */}
           <div className={`${styles.contentText} ${styles.indentedBackgroundBlue}`}>
             <span className={`${styles.fontWeightBold} ${styles.textColorLight}`}>
-              Prefiero que todo esto me lo cuente un entrañable ser de luz.
+              Dame un pequeño adelanto de lo que me espera, por favor.
             </span>
             {/* Wrapper para el botón si se necesita espaciado específico */}
             <div className={styles.buttonWrapper}>
-              <a href="https://www.youtube.com/watch?v=-H2TnrECM9M&ab_channel=ProgramaV%C3%ADaV" className={`${styles.button} ${styles.buttonSecondary}`} target="_blank" rel="noopener noreferrer">
+              <Link to="/ramdon" className={`${styles.button} ${styles.buttonSecondary}`}>
                 BAJO MI RESPONSABILIDAD
-              </a>
+              </Link>
             </div>
           </div>
           <Parallax className={`${styles.gifCollageItemNoBack} ${styles.gifLayer7}`} easing="easeInOutQuad" shouldAlwaysCompleteAnimation={true} startScroll={100} endScroll={1000}>
