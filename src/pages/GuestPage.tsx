@@ -1,5 +1,6 @@
 // src/pages/GuestPage.tsx
 import React, { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { useParams, Link } from 'react-router-dom'; // useParams para leer el slug, Link para el botón
 import { getGuestInvitationBySlug } from '../services/firestoreService';
 import { GuestInvitationData } from '../types/invitation';
@@ -71,7 +72,9 @@ const GuestPage: React.FC = () => {
         {/* Podrías añadir un saludo genérico o usar el displayName */}
         <h1 className={styles.holaMessage}>Hola</h1>
         <h1 className={styles.guestName}>{invitationData.displayName}!</h1>
-        <p className={styles.guestMessage}>{invitationData.customMessage}</p>
+        <div className={styles.guestMessage}>
+          <ReactMarkdown>{invitationData.customMessage}</ReactMarkdown>
+        </div>
         <Link to="/" className={styles.actionButton}>
           {invitationData.buttonText}
         </Link>

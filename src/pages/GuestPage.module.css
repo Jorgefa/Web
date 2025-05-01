@@ -108,3 +108,22 @@
     padding: 2rem;
     text-align: center;
   }
+
+  .guestMessage a {
+    /* Copia o adapta los estilos de tus botones (.actionButton o .guestButton) */
+    color: var(--color-primary-red) !important; /* Color texto botón (usa !important si es necesario sobreescribir) */
+    font-weight: bold;
+    text-decoration: underline !important; /* Quitar subrayado */
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    /* Asegúrate de que no herede otros estilos de 'a' no deseados */
+    line-height: normal; /* Resetear line-height si interfiere */
+  }
+  
+  .guestMessage a:hover {
+    background-color: #cc0000; /* Color hover del botón */
+    transform: scale(1.03);
+    text-decoration: none !important;
+    color: var(--color-text-light) !important;
+  }
