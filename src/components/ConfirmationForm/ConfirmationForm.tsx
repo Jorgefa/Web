@@ -117,14 +117,14 @@ const ConfirmationForm: React.FC = () => {
             {guestType === 'adulto' && (
               <>
                 {/* ... (Plato Principal sin cambios) ... */}
-                <div className={styles.formField}>
+                {/* <div className={styles.formField}>
                   <label htmlFor={`guests.${index}.plato`}>Plato Principal</label>
                   <select {...register(`guests.${index}.plato` as const)}>
                     <option value="carne">Carne</option>
                     <option value="pescado">Pescado</option>
                   </select>
                   <div className={styles.fieldDivider} />
-                </div>
+                </div> */}
 
                 {/* --- SECCIÓN TRANSPORTE (Simplificada) --- */}
                 {/* Ya no usamos .checkboxGroup, solo un .formField normal */}

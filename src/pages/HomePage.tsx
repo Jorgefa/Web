@@ -115,7 +115,7 @@ const HomePage: React.FC = () => {
           {/* El contenedor indented ahora tiene z-index por defecto */}
           <div className={`${styles.contentText} ${styles.indentedBackgroundBlue}`}>
             <span className={`${styles.fontWeightBold} ${styles.textColorLight}`}>
-              Dame un pequeño adelanto de lo que me espera, por favor.
+              Quiero un pequeño adelanto de lo que me espera, por favor.
             </span>
             {/* Wrapper para el botón si se necesita espaciado específico */}
             <div className={styles.buttonWrapper}>

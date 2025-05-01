@@ -76,10 +76,10 @@ const RandomVideoPage: React.FC = () => {
 
         <div className={styles.buttonContainer}>
           <button onClick={selectRandomVideo} className={`${styles.button} ${styles.buttonPrimary}`}>
-            Otro Video Random
+            Quiero más!
           </button>
           <Link to="/" className={`${styles.button} ${styles.buttonPrimary}`}>
-            Volver
+            No másss wey!
           </Link>
         </div>
       </div>

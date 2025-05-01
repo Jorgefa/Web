@@ -72,8 +72,8 @@ const GuestPage: React.FC = () => {
       </header>
       <div className={styles.guestPageContainer}>
         {/* Podrías añadir un saludo genérico o usar el displayName */}
-        <h1 className={styles.holaMessage}>Hola</h1>
-        <h1 className={styles.guestName}>{invitationData.displayName}!</h1>
+        {/* <h1 className={styles.holaMessage}>Hola</h1>
+        <h1 className={styles.guestName}>{invitationData.displayName}!</h1> */}
         <div className={styles.guestMessage}>
           <ReactMarkdown>{invitationData.customMessage}</ReactMarkdown>
         </div>
