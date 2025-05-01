@@ -6,11 +6,10 @@ import { getGuestInvitationBySlug } from '../services/firestoreService';
 import { GuestInvitationData } from '../types/invitation';
 import styles from './GuestPage.module.css'; // Crearemos estilos
 
-const GuestPage: React.FC = () => {
-  // 1. Obtener el slug de la URL
-  const { guestSlug } = useParams<{ guestSlug: string }>(); // Obtiene el valor de :guestSlug
+const GUEST_SLUG_STORAGE_KEY = 'currentGuestSlug';
 
-  // 2. Estados para datos, carga y error
+const GuestPage: React.FC = () => {
+  const { guestSlug } = useParams<{ guestSlug: string }>();
   const [invitationData, setInvitationData] = useState<GuestInvitationData | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -21,18 +20,21 @@ const GuestPage: React.FC = () => {
     const fetchInvitation = async () => {
       if (!guestSlug) {
         setError('No se ha proporcionado identificador de invitado.');
+        localStorage.removeItem(GUEST_SLUG_STORAGE_KEY);
         setIsLoading(false);
         return;
       }
 
       setIsLoading(true);
       setError(null);
-      setInvitationData(null); // Limpiar datos anteriores
+      setInvitationData(null);
+      localStorage.removeItem(GUEST_SLUG_STORAGE_KEY);
 
       try {
         const data = await getGuestInvitationBySlug(guestSlug);
         if (data) {
           setInvitationData(data);
+          localStorage.setItem(GUEST_SLUG_STORAGE_KEY, guestSlug.toLowerCase());
         } else {
           setError(`No hemos encontrado una invitación para "${guestSlug}". Por favor, revisa el enlace.`);
         }

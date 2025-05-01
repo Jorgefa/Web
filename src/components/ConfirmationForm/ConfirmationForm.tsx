@@ -4,9 +4,10 @@ import { useForm, useFieldArray, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ConfirmationFormData, GuestData } from '../../types/confirmation';
 import { saveConfirmation } from '../../services/firestoreService';
-import { Timestamp } from 'firebase/firestore'; // --- 1. Importa Timestamp ---
-
+import { Timestamp } from 'firebase/firestore';
 import styles from './ConfirmationForm.module.css';
+
+const GUEST_SLUG_STORAGE_KEY = 'currentGuestSlug';
 
 // --- CAMBIO EN defaultGuest ---
 const defaultGuest: GuestData = {
@@ -14,8 +15,7 @@ const defaultGuest: GuestData = {
   apellidos: '',
   tipo: '',
   plato: '',
-  // busIda: false, // Eliminado
-  transporte: '', // Valor inicial para el select de transporte
+  transporte: '',
   intolerancias: '',
   comentarios: '',
 };
@@ -49,9 +49,13 @@ const ConfirmationForm: React.FC = () => {
 
     const submissionTime = Timestamp.now();
 
+    const savedSlug = localStorage.getItem(GUEST_SLUG_STORAGE_KEY);
+
     const dataToSave: ConfirmationFormData = {
-      guests: data.guests, // Toma los invitados de los datos del formulario
-      submittedAt: submissionTime, // Añade el timestamp
+      guests: data.guests,
+      submittedAt: submissionTime, 
+      ...(savedSlug && { originatingSlug: savedSlug }),
+
     };
 
     console.log('Datos a enviar (con timestamp):', dataToSave); // Depuración

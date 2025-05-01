@@ -18,5 +18,6 @@ export interface GuestData {
 // --- 2. Añade el campo submittedAt ---
 export interface ConfirmationFormData {
   guests: GuestData[];
-  submittedAt: Timestamp; // Marca de tiempo del envío
+  submittedAt: Timestamp;
+  originatingSlug?: string;
 }

@@ -99,12 +99,10 @@ const AdminPage: React.FC = () => {
       totalAllergies,
       totalComments,
     };
-  }, [confirmations]); // Recalcular solo si 'confirmations' cambia
+  }, [confirmations]);
 
 
-  // --- NUEVA FUNCIÓN handleDelete ---
   const handleDelete = useCallback(async (docId: string, displayName: string) => {
-    // 1. Confirmación del usuario
     const confirmDelete = window.confirm(
       `¿Estás seguro de que quieres eliminar el registro "${displayName}"?\n¡Esta acción no se puede deshacer!`
     );
@@ -172,8 +170,9 @@ const AdminPage: React.FC = () => {
         ) : (
           <ul className={styles.confirmationList}>
             {confirmations.map((conf) => {
-              const guestNames = conf.guests.map(g => g.nombre.trim()).filter(Boolean).join(', ');
-              const displayName = `Form_${guestNames || 'Invitado(s) sin nombre'}`;
+              const guestNames = conf.guests.map(g => g.nombre?.trim()).filter(Boolean).join(', ') || 'Invitado(s)';
+              const slugPart = conf.originatingSlug ? `${conf.originatingSlug}_` : ''; // Añade slug y guion bajo si existe
+              const displayName = `Form_${slugPart}${guestNames}`;
               const isDeleting = deleteStatus[conf.id] === 'deleting';
               const hasError = deleteStatus[conf.id] === 'error';
 
