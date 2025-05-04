@@ -60,6 +60,13 @@
     text-align: left;
     padding-left: 33%; /* Ajustar indentación */
   }
+  .guestMessage p {
+    /* Margen inferior para separar los párrafos generados */
+    margin-bottom: var(--spacing-medium); /* Ajusta este valor (ej: 1rem, 1.5rem, 20px) */
+    /* Heredará la alineación de .guestMessage, si es center, los párrafos estarán centrados */
+    /* Si quieres forzar alineación izquierda para los párrafos: */
+    /* text-align: left; */
+  }
   
   .actionButton {
     display: inline-block;
