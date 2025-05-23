@@ -3,9 +3,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './ThankYouPage.module.css'; // Crearemos estilos
 import crisfer from '../assets/gifs/crisfer.gif'; // Importa la imagen de crisfer
-
+import { useTranslation } from '../context/TranslationContext';
 
 const ThankYouPage: React.FC = () => {
+  const { translate } = useTranslation();
+  
   return (
     <div className={styles.pageWrapper}> {/* Renombrado para claridad */}
       {/* ----- Header ----- */}
@@ -15,12 +17,18 @@ const ThankYouPage: React.FC = () => {
       <div className={styles.pageContainer}>
         <img src={crisfer} alt="Fer gif" className={styles.thankYouImage}/>
         <div className={styles.sectionTitle}>
-          <h1 className={`${styles.titleBlock}  ${styles.sizeHero} ${styles.fontDisplay}`}>MUCHAS</h1>
-          <h1 className={`${styles.titleBlock}  ${styles.sizeHero}`}>GRA-</h1>
-          <h1 className={`${styles.titleBlock}  ${styles.sizeHero}`}>CIAS!!</h1>
+          <h1 className={`${styles.titleBlock}  ${styles.sizeHero} ${styles.fontDisplay}`}>
+            {translate('MUCHAS', 'THANK')}
+          </h1>
+          <h1 className={`${styles.titleBlock}  ${styles.sizeHero}`}>
+            {translate('GRA-', 'YOU')}
+          </h1>
+          <h1 className={`${styles.titleBlock}  ${styles.sizeHero}`}>
+            {translate('CIAS!!', 'SO MUCH!!')}
+          </h1>
         </div>
         <Link to="/" className={`${styles.button}  ${styles.buttonPrimary}`}>
-          Volver
+          {translate('Volver', 'Back')}
         </Link>
       </div>
     </div>

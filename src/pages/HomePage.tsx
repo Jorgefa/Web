@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './HomePage.module.css'; // Estilos específicos de esta página
 import { Parallax } from 'react-scroll-parallax';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '../context/TranslationContext';
 
 // --- GIFs ---
 import gifMichelDwightBailando from '../assets/gifs/1.gif';
@@ -22,6 +23,7 @@ import gifTuktuk from '../assets/gifs/tuktuk.gif';
 
 
 const HomePage: React.FC = () => {
+  const { translate } = useTranslation();
 
   return (
     <div className={styles.pageWrapper}> {/* Renombrado para claridad */}
@@ -33,15 +35,14 @@ const HomePage: React.FC = () => {
       <main className={styles.pageContainer}> {/* Contenedor principal del contenido */}
 
         {/* ----- Hero Section (Que nos casamos) ----- */}
-        <section className={styles.heroSection}>
-            <div className={styles.heroTitleDateContainer}>
+        <section className={styles.heroSection}>            <div className={styles.heroTitleDateContainer}>
               <h1 className={`${styles.sectionTitle} ${styles.colorRed} ${styles.sizeHero}`}>
-                  <span className={styles.titleBlock}>¡QUE</span>
+                  <span className={styles.titleBlock}>{translate('¡QUE', 'IT`S')}</span>
                   {/* Aplicar fuente display directamente donde se necesita */}
-                  <span className={`${styles.titleBlock} ${styles.fontDisplay} ${styles.fontDisplayLarge}`}>NOS</span>
-                  <span className={styles.titleBlock}>CASA-</span>
+                  <span className={`${styles.titleBlock} ${styles.fontDisplay} ${styles.fontDisplayLarge}`}>{translate('NOS', 'WEDD-')}</span>
+                  <span className={styles.titleBlock}>{translate('CASA-', 'ING')}</span>
                   <div className={styles.dateTextBlock}>
-                    <span className={styles.titleBlock}>MOS!</span>
+                    <span className={styles.titleBlock}>{translate('MOS!', 'TIME!')}</span>
                     <div className={styles.dateBlock}>
                         <span className={styles.dateNumber}>30</span>
                         <span className={styles.dateNumberReg}>08</span>
@@ -53,7 +54,7 @@ const HomePage: React.FC = () => {
             </div>
             <div className={`${styles.contentTextAquien} ${styles.indented} ${styles.fontWeightBold} ${styles.colorBlue}`}>
               <p>
-              A quien no le va a gustar celebrar el amor y una buena jarana.
+              {translate('A quien no le va a gustar celebrar el amor y una buena jarana.', 'Who wouldn\'t like to celebrate love and have a good party.')}
               </p>
             </div>
         </section>
@@ -78,7 +79,7 @@ const HomePage: React.FC = () => {
             <h1 className={`${styles.sectionTitle2} ${styles.colorRed} ${styles.sizeHero}`}>
                 30
                 <br />
-                <span className={`${styles.fontDisplay} ${styles.fontDisplayMedium}`}>Agosto</span>
+                <span className={`${styles.fontDisplay} ${styles.fontDisplayMedium}`}>{translate('Agosto', 'August')}</span>
                 <br />
                 2025
             </h1>
@@ -89,7 +90,7 @@ const HomePage: React.FC = () => {
                   C. la Iglesia, 11, 24546 Arganza, León
                 </span>
                 <a href="https://maps.app.goo.gl/4ibwkG4HcGDh7dLv5" className={`${styles.button} ${styles.buttonPrimary}`} target="_blank" rel="noopener noreferrer">
-                  LLÉVAME CON MAPS
+                  {translate('LLÉVAME CON MAPS', 'TAKE ME WITH MAPS')}
                 </a>
             </div>
         </section>
@@ -115,12 +116,12 @@ const HomePage: React.FC = () => {
           {/* El contenedor indented ahora tiene z-index por defecto */}
           <div className={`${styles.contentText} ${styles.indentedBackgroundBlue}`}>
             <span className={`${styles.fontWeightBold} ${styles.textColorLight}`}>
-              Quiero un pequeño adelanto de lo que me espera, por favor.
+              {translate('Quiero un pequeño adelanto de lo que me espera, por favor.', 'I want a little preview of what awaits me, please.')}
             </span>
             {/* Wrapper para el botón si se necesita espaciado específico */}
             <div className={styles.buttonWrapper}>
               <Link to="/ramdon" className={`${styles.button} ${styles.buttonSecondary}`}>
-                BAJO MI RESPONSABILIDAD
+                {translate('BAJO MI RESPONSABILIDAD', 'AT MY OWN RISK')}
               </Link>
             </div>
           </div>
@@ -132,27 +133,27 @@ const HomePage: React.FC = () => {
         {/* ----- Confirmation Section ----- */}
         <section className={styles.confirmationSection}>
           <h2 className={`${styles.sectionTitle2} ${styles.colorRed} ${styles.sizeHero}`}>
-            SÍ,
+            {translate('SÍ,', 'YES,')}
             <br />
-            ESTO
+            {translate('ESTO', 'THIS')}
             <br />
-            ES
+            {translate('ES', 'IS')}
             <br />
-            REAL,
+            {translate('REAL,', 'REAL,')}
             <br />
             {/* Aplicar fuente display aquí */}
-            <span className={`${styles.fontDisplay} ${styles.fontDisplayMedium}`}>NO ES IA</span>
+            <span className={`${styles.fontDisplay} ${styles.fontDisplayMedium}`}>{translate('NO ES IA', 'NOT AI')}</span>
             <br />
-            NI UN
+            {translate('NI UN', 'NOR A')}
             <br />
-            SIMU-
+            {translate('SIMU-', 'SIMU-')}
             <br />
-            LACRO
+            {translate('LACRO', 'LATION')}
           </h2>
           <div className={`${styles.contentTextCerve} ${styles.indented} ${styles.fontWeightBold}`}>
-            <p>Y para estar bien preparados y calcular bien las cervezas, ¡necesitamos que confirmes!</p>
+            <p>{translate('Y para estar bien preparados y calcular bien las cervezas, ¡necesitamos que confirmes!', 'And to be well prepared and calculate the beers correctly, we need you to confirm!')}</p>
             <Link to="/confirmacion" className={`${styles.button}  ${styles.buttonSpecial}`}>
-              YO VOY!
+              {translate('YO VOY!', 'I\'M GOING!')}
             </Link>
           </div>
         </section>
@@ -173,10 +174,10 @@ const HomePage: React.FC = () => {
         <section className={`${styles.busInfoSection} ${styles.sectionWithRedBackground}`}>
           <div className={`${styles.contentText} ${styles.indentedBackgroundRed}`}>
             <span className={`${styles.fontWeightBold} ${styles.textColorLight}`}>
-              Los autobuses tendrán salida y llegada desde Ponferrada con varias paradas.
+              {translate('Los autobuses tendrán salida y llegada desde Ponferrada con varias paradas.', 'The buses will depart from and return to Ponferrada with several stops.')}
               <br />
               <br />
-              Actualizaremos cuando se acerque la fecha.
+              {translate('Actualizaremos cuando se acerque la fecha.', 'We will update as the date approaches.')}
             </span>
           </div>
             <Parallax className={`${styles.gifCollageItemNoBack} ${styles.gifLayer10}`} translateY={['-0%', '0%']} easing="easeInOutQuad" shouldAlwaysCompleteAnimation={true} startScroll={100} endScroll={1000}>
@@ -194,7 +195,7 @@ const HomePage: React.FC = () => {
           </h2>
           <div className={`${styles.contentTextDress} ${styles.indented} ${styles.fontWeightBold}`}>
             <span>
-              Feel free and ven como quieras pero pilla la chaqueta por si refresca.
+              {translate('Feel free and ven como quieras pero pilla la chaqueta por si refresca.', 'Feel free and come as you wish but grab a jacket in case it gets chilly.')}
             </span>
           </div>
           <div className={styles.gifCollageContainer4}>
@@ -250,7 +251,7 @@ const HomePage: React.FC = () => {
             <img src={gifTuktuk} alt="Tuk tuk gif" />
           </div>
           <div className={styles.footerText}>
-            <p>MADRE MÍA QUÉ EMOCIÓN</p>
+            <p>{translate('MADRE MÍA QUÉ EMOCIÓN', 'MY GOODNESS, HOW EXCITING')}</p>
           </div>
         </div>
       </footer>
