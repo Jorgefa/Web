@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './RandomVideoPage.module.css';
+import { useTranslation } from '../context/TranslationContext';
 
 // --- LISTA DE VIDEOS --- (Reemplaza con tus IDs reales)
 const YOUTUBE_VIDEO_IDS = [
@@ -19,6 +20,7 @@ const YOUTUBE_VIDEO_IDS = [
 ];
 
 const RandomVideoPage: React.FC = () => {
+  const { translate } = useTranslation();
   const [currentVideoId, setCurrentVideoId] = useState<string | null>(null);
 
   // Función para seleccionar un video random (asegurándose que no sea el mismo)
@@ -71,15 +73,15 @@ const RandomVideoPage: React.FC = () => {
           </div>
         ) : (
           // Mensaje mientras se selecciona el primer video o si hay error
-          <p className={styles.loadingMessage}>Cargando video...</p>
+          <p className={styles.loadingMessage}>{translate('Cargando video...', 'Loading video...')}</p>
         )}
 
         <div className={styles.buttonContainer}>
           <button onClick={selectRandomVideo} className={`${styles.button} ${styles.buttonPrimary}`}>
-            Quiero más!
+            {translate('Quiero más!', 'I want more!')}
           </button>
           <Link to="/" className={`${styles.button} ${styles.buttonPrimary}`}>
-            No másss wey!
+            {translate('No másss wey!', 'No moooore!')}
           </Link>
         </div>
       </div>

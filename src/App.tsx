@@ -8,6 +8,7 @@ import ThankYouPage from './pages/ThankYouPage';     // <-- Nueva importación
 import AdminPage from './pages/AdminPage';
 import GuestPage from './pages/GuestPage';
 import RandomVideoPage from './pages/RandomVideoPage';
+import { TranslationProvider } from './context/TranslationContext';
 
 
 // Importa MarianoPage si la tienes
@@ -53,7 +54,11 @@ const router = createBrowserRouter([
 ]);
 
 const App: React.FC = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <TranslationProvider>
+      <RouterProvider router={router} />
+    </TranslationProvider>
+  );
 };
 
 export default App;
