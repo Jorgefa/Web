@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
                 2025
             </h1>
             <div className={`${styles.contentTextLugar} ${styles.indented}`}>
-                <p className={styles.fontWeightBold}>13:30h</p>
+                <p className={styles.fontWeightBold}>13:00h</p>
                 <p className={styles.fontWeightBold}>La Casona de Pittacum</p>
                 <span className={`${styles.addressText} ${styles.fontWeightLight}`}>
                   C. la Iglesia, 11, 24546 Arganza, León
